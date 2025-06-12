@@ -1,0 +1,9 @@
+RewriteEngine On
+RewriteBase /DW/
+
+# Redirect requests to index.php if the requested file or directory doesn't exist
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Remove index.php from the URL
+RewriteRule ^(.*)$ index.php?/$1 [L]
