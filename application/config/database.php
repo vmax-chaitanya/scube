@@ -78,7 +78,7 @@ $db['default'] = array(
 	'hostname' => 'localhost',
 	'username' => 'root',
 	'password' => '',
-	'database' => 'hr_first',
+	'database' => 'scube',
 
 	// 'username' => 'digitalwinbusiness',
 	// 'password' => '36tw!P7fLsdqujfT',

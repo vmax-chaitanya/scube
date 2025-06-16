@@ -4,17 +4,17 @@
           <a href="index.html" class="logo">
               <span>
                   <img
-                      src="assets/images/logo-sm.png"
+                      src="<?php echo base_url();?>assets/admin//images/logo-sm.png"
                       alt="logo-small"
                       class="logo-sm" />
               </span>
               <span class="">
                   <img
-                      src="assets/images/logo-light.png"
+                      src="<?php echo base_url();?>assets/admin//images/logo-light.png"
                       alt="logo-large"
                       class="logo-lg logo-light" />
                   <img
-                      src="assets/images/logo-dark.png"
+                      src="<?php echo base_url();?>assets/admin//images/logo-dark.png"
                       alt="logo-large"
                       class="logo-lg logo-dark" />
               </span>

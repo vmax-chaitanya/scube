@@ -36,28 +36,28 @@
                           aria-haspopup="false"
                           aria-expanded="false">
                           <img
-                              src="assets/images/flags/us_flag.jpg"
+                              src="<?php echo base_url();?>assets/admin//images/flags/us_flag.jpg"
                               alt=""
                               class="thumb-sm rounded-circle" />
                       </a>
                       <div class="dropdown-menu">
                           <a class="dropdown-item" href="#"><img
-                                  src="assets/images/flags/us_flag.jpg"
+                                  src="<?php echo base_url();?>assets/admin//images/flags/us_flag.jpg"
                                   alt=""
                                   height="15"
                                   class="me-2" />English</a>
                           <a class="dropdown-item" href="#"><img
-                                  src="assets/images/flags/spain_flag.jpg"
+                                  src="<?php echo base_url();?>assets/admin//images/flags/spain_flag.jpg"
                                   alt=""
                                   height="15"
                                   class="me-2" />Spanish</a>
                           <a class="dropdown-item" href="#"><img
-                                  src="assets/images/flags/germany_flag.jpg"
+                                  src="<?php echo base_url();?>assets/admin//images/flags/germany_flag.jpg"
                                   alt=""
                                   height="15"
                                   class="me-2" />German</a>
                           <a class="dropdown-item" href="#"><img
-                                  src="assets/images/flags/french_flag.jpg"
+                                  src="<?php echo base_url();?>assets/admin//images/flags/french_flag.jpg"
                                   alt=""
                                   height="15"
                                   class="me-2" />French</a>
@@ -360,7 +360,7 @@
                           aria-haspopup="false"
                           aria-expanded="false">
                           <img
-                              src="assets/images/users/avatar-1.jpg"
+                              src="<?php echo base_url();?>assets/admin//images/users/avatar-1.jpg"
                               alt=""
                               class="thumb-lg rounded-circle" />
                       </a>
@@ -369,7 +369,7 @@
                               class="d-flex align-items-center dropdown-item py-2 bg-secondary-subtle">
                               <div class="flex-shrink-0">
                                   <img
-                                      src="assets/images/users/avatar-1.jpg"
+                                      src="<?php echo base_url();?>assets/admin//images/users/avatar-1.jpg"
                                       alt=""
                                       class="thumb-md rounded-circle" />
                               </div>
