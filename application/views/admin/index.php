@@ -181,7 +181,7 @@
                         class="user-avatar position-relative d-inline-block"
                         href="#">
                         <img
-                          src="<?php echo base_url();?>assets/admin//images/users/avatar-1.jpg"
+                          src="<?php echo base_url(); ?>assets/admin/images/users/avatar-1.jpg"
                           alt="avatar"
                           class="thumb-md shadow-sm rounded-circle" />
                       </a>
@@ -189,7 +189,7 @@
                         class="user-avatar position-relative d-inline-block ms-n2"
                         href="#">
                         <img
-                          src="<?php echo base_url();?>assets/admin//images/users/avatar-2.jpg"
+                          src="<?php echo base_url(); ?>assets/admin/images/users/avatar-2.jpg"
                           alt="avatar"
                           class="thumb-md shadow-sm rounded-circle" />
                       </a>
@@ -197,7 +197,7 @@
                         class="user-avatar position-relative d-inline-block ms-n2"
                         href="#">
                         <img
-                          src="<?php echo base_url();?>assets/admin//images/users/avatar-4.jpg"
+                          src="<?php echo base_url(); ?>assets/admin/images/users/avatar-4.jpg"
                           alt="avatar"
                           class="thumb-md shadow-sm rounded-circle" />
                       </a>
@@ -205,7 +205,7 @@
                         class="user-avatar position-relative d-inline-block ms-n2"
                         href="#">
                         <img
-                          src="<?php echo base_url();?>assets/admin//images/users/avatar-3.jpg"
+                          src="<?php echo base_url(); ?>assets/admin/images/users/avatar-3.jpg"
                           alt="avatar"
                           class="thumb-md shadow-sm rounded-circle" />
                       </a>
@@ -265,7 +265,7 @@
                       <tr>
                         <td>
                           <img
-                            src="<?php echo base_url();?>assets/admin//images/logos/chrome.png"
+                            src="<?php echo base_url(); ?>assets/admin/images/logos/chrome.png"
                             alt
                             height="24"
                             class="me-2" />Chrome
@@ -278,7 +278,7 @@
                       <tr>
                         <td>
                           <img
-                            src="<?php echo base_url();?>assets/admin//images/logos/micro-edge.png"
+                            src="<?php echo base_url(); ?>assets/admin/images/logos/micro-edge.png"
                             alt
                             height="24"
                             class="me-2" />Microsoft Edge
@@ -291,7 +291,7 @@
                       <tr>
                         <td>
                           <img
-                            src="<?php echo base_url();?>assets/admin//images/logos/in-explorer.png"
+                            src="<?php echo base_url(); ?>assets/admin/images/logos/in-explorer.png"
                             alt
                             height="24"
                             class="me-2" />Internet-Explorer
@@ -304,7 +304,7 @@
                       <tr>
                         <td>
                           <img
-                            src="<?php echo base_url();?>assets/admin//images/logos/opera.png"
+                            src="<?php echo base_url(); ?>assets/admin/images/logos/opera.png"
                             alt
                             height="24"
                             class="me-2" />Opera
@@ -317,7 +317,7 @@
                       <tr>
                         <td>
                           <img
-                            src="<?php echo base_url();?>assets/admin//images/logos/chrome.png"
+                            src="<?php echo base_url(); ?>assets/admin/images/logos/chrome.png"
                             alt
                             height="24"
                             class="me-2" />Chrome
@@ -533,7 +533,7 @@
                   <div class="col-lg-4 align-self-center">
                     <div class="d-flex align-items-center my-3">
                       <img
-                        src="<?php echo base_url();?>assets/admin//images/flags/us_flag.jpg"
+                        src="<?php echo base_url(); ?>assets/admin/images/flags/us_flag.jpg"
                         class="thumb-sm align-self-center rounded-circle"
                         alt="..." />
                       <div class="flex-grow-1 ms-2">
@@ -548,7 +548,7 @@
                     <!--end media-->
                     <div class="d-flex align-items-center my-3">
                       <img
-                        src="<?php echo base_url();?>assets/admin//images/flags/germany_flag.jpg"
+                        src="<?php echo base_url(); ?>assets/admin/images/flags/germany_flag.jpg"
                         class="thumb-sm align-self-center rounded-circle"
                         alt="..." />
                       <div class="flex-grow-1 ms-2">
@@ -563,7 +563,7 @@
                     <!--end media-->
                     <div class="d-flex align-items-center my-3">
                       <img
-                        src="<?php echo base_url();?>assets/admin//images/flags/spain_flag.jpg"
+                        src="<?php echo base_url(); ?>assets/admin/images/flags/spain_flag.jpg"
                         class="thumb-sm align-self-center rounded-circle"
                         alt="..." />
                       <div class="flex-grow-1 ms-2">
@@ -578,7 +578,7 @@
                     <!--end media-->
                     <div class="d-flex align-items-center my-3">
                       <img
-                        src="<?php echo base_url();?>assets/admin//images/flags/baha_flag.jpg"
+                        src="<?php echo base_url(); ?>assets/admin/images/flags/baha_flag.jpg"
                         class="thumb-sm align-self-center rounded-circle"
                         alt="..." />
                       <div class="flex-grow-1 ms-2">
