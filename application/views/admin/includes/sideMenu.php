@@ -75,7 +75,7 @@
                                   </li>
 
                                   <li class="nav-item">
-                                      <a class="nav-link" href="apps-contact-list.html">Contact List</a>
+                                      <a class="nav-link" href="<?php echo base_url(); ?>admin/jobs/">Jobs List</a>
                                   </li>
 
                                   <li class="nav-item">
