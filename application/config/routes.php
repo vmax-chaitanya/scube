@@ -243,3 +243,20 @@ $route['admin/CareersJobs/update/(:num)'] = 'Admin/CareersJobs/update/$1'; // Up
 $route['admin/CareersJobs/delete/(:num)'] = 'Admin/CareersJobs/delete/$1'; // Delete a blog post
 // $route['admin/blog/(:num)'] = 'Admin/CareersJobs/view/$1'; // View a single blog post
 ///////admin////////
+
+
+$route['admin/user'] = 'Admin/Login/listing';
+$route['admin/user/create'] = 'Admin/Login/createUser';
+$route['admin/user/store'] = 'Admin/Login/store';
+$route['admin/user/edit/(:num)'] = 'Admin/Login/edit/$1';
+$route['admin/user/update/(:num)'] = 'Admin/Login/update/$1';
+$route['admin/user/delete/(:num)'] = 'Admin/Login/delete/$1';
+$route['admin/user/change_password'] = 'admin/Login/change_password';
+
+
+$route['admin/jobs'] = 'Admin/JobsController/index';
+$route['admin/jobs/create'] = 'Admin/JobsController/create';
+$route['admin/jobs/store'] = 'Admin/JobsController/store';
+$route['admin/jobs/edit/(:num)'] = 'Admin/JobsController/edit/$1';
+$route['admin/jobs/update/(:num)'] = 'Admin/JobsController/update/$1';
+$route['admin/jobs/delete/(:num)'] = 'Admin/JobsController/delete/$1';
