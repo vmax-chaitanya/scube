@@ -84,6 +84,12 @@ $route['seo'] = 'HomeController/seo';
 $route['generate-captcha/(:any)'] = 'HomeController/generate_captcha/$1';
 $route['outdoor-advertising'] = 'HomeController/OutdoorAdvertising';
 
+
+
+
+$route['job-application'] = 'JobApplication/apply';
+$route['job-application/success'] = 'JobApplication/success';
+
 //////////Home Controller//////
 
 ///////admin////////

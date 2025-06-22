@@ -22,38 +22,41 @@ class HomeController extends CI_Controller
 	{
 		// echo 'PHP Version: ' . phpversion();
 		// exit;
-		$data['meta_data'] =  $this->Home_model->getSeoRecordById('1');
-		$data['page_title'] = !empty($data['meta_data']['meta_name']) ? $data['meta_data']['meta_name'] : "page_title";
-		$data['meta_description'] = !empty($data['meta_data']['meta_description']) ? $data['meta_data']['meta_description'] : "meta_description";
-		$data['meta_keywords'] = !empty($data['meta_data']['meta_keywords']) ? $data['meta_data']['meta_keywords'] : "meta_keywords";
-		$data['tools'] = $this->Home_model->getActiveTools();
-		$data['clients'] = $this->Home_model->getActiveClients();
-		$data['team'] = $this->Home_model->getActiveTeams();
-		$data['testimonial'] = $this->Home_model->getActiveTestimonial();
+		// $data['meta_data'] =  $this->Home_model->getSeoRecordById('1');
+		// $data['page_title'] = !empty($data['meta_data']['meta_name']) ? $data['meta_data']['meta_name'] : "page_title";
+		// $data['meta_description'] = !empty($data['meta_data']['meta_description']) ? $data['meta_data']['meta_description'] : "meta_description";
+		// $data['meta_keywords'] = !empty($data['meta_data']['meta_keywords']) ? $data['meta_data']['meta_keywords'] : "meta_keywords";
+		// $data['tools'] = $this->Home_model->getActiveTools();
+		// $data['clients'] = $this->Home_model->getActiveClients();
+		// $data['team'] = $this->Home_model->getActiveTeams();
+		// $data['testimonial'] = $this->Home_model->getActiveTestimonial();
 
-		$data['services'] = $this->Home_model->getCategoryServices(1);
+		// $data['services'] = $this->Home_model->getCategoryServices(1);
 
-		$data['banners'] = $this->Home_model->getActiveBanners();
-		$data['trainings'] = $this->Home_model->getActiveTraining();
-		$data['captcha_image'] = $this->generate_captcha(0);
+		// $data['banners'] = $this->Home_model->getActiveBanners();
+		// $data['trainings'] = $this->Home_model->getActiveTraining();
+		// $data['captcha_image'] = $this->generate_captcha(0);
 
 		//echo $this->db->last_query(); exit;;
 		//print_r($data['banners']); exit;
+		$data['services'] = "ddd";
 		$this->load->view('home/index', $data);
 	}
 
+	
+
 	public function about()
 	{
-		$data['meta_data'] =  $this->Home_model->getSeoRecordById('2');
-		$data['page_title'] = !empty($data['meta_data']['meta_name']) ? $data['meta_data']['meta_name'] : "page_title";
-		$data['meta_description'] = !empty($data['meta_data']['meta_description']) ? $data['meta_data']['meta_description'] : "meta_description";
-		$data['meta_keywords'] = !empty($data['meta_data']['meta_keywords']) ? $data['meta_data']['meta_keywords'] : "meta_keywords";
+	// 	$data['meta_data'] =  $this->Home_model->getSeoRecordById('2');
+	// 	$data['page_title'] = !empty($data['meta_data']['meta_name']) ? $data['meta_data']['meta_name'] : "page_title";
+	// 	$data['meta_description'] = !empty($data['meta_data']['meta_description']) ? $data['meta_data']['meta_description'] : "meta_description";
+	// 	$data['meta_keywords'] = !empty($data['meta_data']['meta_keywords']) ? $data['meta_data']['meta_keywords'] : "meta_keywords";
 
-		$data['team'] = $this->Home_model->getActiveTeams();
-		$data['faqs'] = $this->Home_model->getActiveFaqs();
-		$data['testimonial'] = $this->Home_model->getActiveTestimonial();
+	// 	$data['team'] = $this->Home_model->getActiveTeams();
+	// 	$data['faqs'] = $this->Home_model->getActiveFaqs();
+		$data['testimonial'] = "tesr";
 
-		$this->load->view('home/about', $data);
+		$this->load->view('home/detail', $data);
 	}
 	public function custom_404()
 	{
