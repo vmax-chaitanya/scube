@@ -83,7 +83,7 @@ class Login extends CI_Controller
                 // Image upload handling
                 $image = null;
                 if (!empty($_FILES['image']['name'])) {
-                    $config['upload_path']   = './uploads/users/';
+                    $config['upload_path']   = './assets/images/users/';
                     $config['allowed_types'] = 'jpg|jpeg|png|gif';
                     $config['max_size']      = 2048; // 2MB max
                     $config['file_name']     = time() . '_' . $_FILES['image']['name'];
@@ -150,7 +150,7 @@ class Login extends CI_Controller
             // Handle image upload
             $image = $user->image; // Default to existing
             if (!empty($_FILES['image']['name'])) {
-                $config['upload_path'] = './uploads/users/';
+                $config['upload_path'] = './assets/images/users/';
                 $config['allowed_types'] = 'jpg|jpeg|png|gif';
                 $config['file_name'] = time() . '_' . $_FILES['image']['name'];
                 $this->load->library('upload', $config);

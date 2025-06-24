@@ -93,7 +93,7 @@ class JobsController extends CI_Controller
         }
 
         if ($this->form_validation->run() === FALSE) {
-            $data['job'] = $this->jobsModel->get_job_by_id($id);
+            $data['job'] = $this->jobsModel->get_job($id);
             $this->load->view('admin/jobsEdit', $data);
         } else {
             $data = $this->_get_post_data();

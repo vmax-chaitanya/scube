@@ -55,6 +55,23 @@
               </div>
               <!--end card-header-->
               <div class="card-body pt-0">
+                <?php if (validation_errors()) : ?>
+                  <div class="alert alert-danger">
+                    <?= validation_errors(); ?>
+                  </div>
+                <?php endif; ?>
+
+                <?php if ($this->session->flashdata('error')) : ?>
+                  <div class="alert alert-danger">
+                    <?= $this->session->flashdata('error'); ?>
+                  </div>
+                <?php endif; ?>
+
+                <?php if ($this->session->flashdata('success')) : ?>
+                  <div class="alert alert-success">
+                    <?= $this->session->flashdata('success'); ?>
+                  </div>
+                <?php endif; ?>
                 <div class="table-responsive">
                   <table class="table datatable" id="datatable_1">
                     <thead class="table-light">

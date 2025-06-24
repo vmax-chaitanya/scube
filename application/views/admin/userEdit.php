@@ -141,7 +141,7 @@
                         <div class="col-sm-10">
                           <input type="file" name="image" id="image" class="form-control">
                           <?php if (!empty($user->image)) : ?>
-                            <img src="<?= base_url('uploads/users/' . $user->image); ?>" alt="User Image" style="max-width: 100px; margin-top: 5px;">
+                            <img src="<?= base_url('assets/images/users/' . $user->image); ?>" alt="User Image" style="max-width: 100px; margin-top: 5px;">
                           <?php endif; ?>
                         </div>
                       </div>
