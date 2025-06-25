@@ -218,6 +218,12 @@
                   </a>
       </div>
       </li> -->
+                  <?php
+                    $user_image = $this->session->userdata('img'); // Adjust key as per your session data
+                    $profile_img = (!empty($user_image))
+                        ? base_url('assets/images/users/' . $user_image)
+                        : base_url('assets/admin/images/users/avatar-1.jpg');
+                    ?>
 
                   <li class="dropdown topbar-item">
                       <a
@@ -228,7 +234,7 @@
                           aria-haspopup="false"
                           aria-expanded="false">
                           <img
-                              src="<?php echo base_url(); ?>assets/admin/images/users/avatar-1.jpg"
+                              src="<?= $profile_img ?>"
                               alt=""
                               class="thumb-lg rounded-circle" />
                       </a>
@@ -236,14 +242,18 @@
                           <div
                               class="d-flex align-items-center dropdown-item py-2 bg-secondary-subtle">
                               <div class="flex-shrink-0">
-                                  <img
+                                  <!-- <img
                                       src="<?php echo base_url(); ?>assets/admin/images/users/avatar-1.jpg"
                                       alt=""
-                                      class="thumb-md rounded-circle" />
+                                      class="thumb-md rounded-circle" /> -->
+
+
+                                  <img src="<?= $profile_img ?>" alt="Profile" class="thumb-md rounded-circle" />
+
                               </div>
                               <div class="flex-grow-1 ms-2 text-truncate align-self-center">
                                   <h6 class="my-0 fw-medium text-dark fs-13">
-                                      <?php echo    $this->session->userdata('username');; ?>
+                                      <?php echo    $this->session->userdata('username'); ?>
 
                                   </h6>
                                   <small class="text-muted mb-0">Front End Developer</small>
@@ -252,7 +262,7 @@
                           </div>
                           <div class="dropdown-divider mt-0"></div>
                           <small class="text-muted px-2 pb-1 d-block">Account</small>
-                          <a class="dropdown-item" href="pages-profile.html"><i class="las la-user fs-18 me-1 align-text-bottom"></i>
+                          <a class="dropdown-item" href="<?php echo base_url(); ?>admin/user/profile"><i class="las la-user fs-18 me-1 align-text-bottom"></i>
                               Profile</a>
                           <a class="dropdown-item" href="<?php echo base_url(); ?>admin/user/change_password"><i class="las la-wallet fs-18 me-1 align-text-bottom"></i>
                               Change Password</a>

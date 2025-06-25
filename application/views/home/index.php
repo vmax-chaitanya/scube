@@ -5,6 +5,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Job Listings</title>
+  <link rel="shortcut icon" href="<?= base_url(); ?>assets/home/images/favicon.png">
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/home/css/style.css">
   <!-- Bootstrap Icons -->
@@ -18,7 +20,10 @@
   <nav class="navbar navbar-expand-lg navbar-dark primary-bg sticky-top shadow-sm">
 
     <div class="container">
-      <a class="navbar-brand" href="#"><img src="https://via.placeholder.com/40x40" alt="Logo" class="me-2">JobBoard</a>
+      <a class="navbar-brand" href="#">
+        <img src="<?= base_url(); ?>assets/home/images/logo.png" alt="Logo" class=" logo-img">
+      </a>
+
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -44,7 +49,7 @@
       </div>
 
       <!-- Search and Filter -->
-      <div class="row mb-4">
+      <!-- <div class="row mb-4">
         <div class="col-md-4 mb-2">
           <input type="text" class="form-control" placeholder="Search by title, keyword..." />
         </div>
@@ -64,7 +69,7 @@
             <option>Marketing</option>
           </select>
         </div>
-      </div>
+      </div> -->
 
       <!-- Job Cards -->
       <div class="row g-4">
@@ -169,7 +174,7 @@
       </div>
       <hr class="border-light mt-4" />
       <div class="text-center small">
-        &copy; 2025 Your Company. All rights reserved.
+        Copyright &copy; 2025 Scube, All rights reserved. Designed by DigitalWin Business Agency
       </div>
     </div>
   </footer>

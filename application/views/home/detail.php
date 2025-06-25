@@ -5,6 +5,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Job Details & Application</title>
+  <link rel="shortcut icon" href="<?= base_url(); ?>assets/home/images/favicon.png">
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/home/css/style.css">
@@ -18,7 +20,7 @@
 
     <div class="container">
       <a class="navbar-brand" href="#">
-        <img src="logo.png" alt="Logo" height="30" />
+        <img src="<?= base_url(); ?>assets/home/images/logo.png" alt="Logo" class=" logo-img">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
@@ -41,12 +43,12 @@
       <div class="position-relative py-5">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb mb-3">
-            <li class="breadcrumb-item"><a class="text-white text-decoration-underline" href="index.html">Home</a></li>
-            <li class="breadcrumb-item"><a class="text-white text-decoration-underline" href="#">Jobs</a></li>
-            <li class="breadcrumb-item active text-white" aria-current="page">Frontend Developer</li>
+            <li class="breadcrumb-item"><a class="text-white text-decoration-underline" href="index.html">Jobs</a></li>
+            <!-- <li class="breadcrumb-item"><a class="text-white text-decoration-underline" href="#">Jobs</a></li> -->
+            <li class="breadcrumb-item active text-white" aria-current="page"><?= htmlspecialchars($job->job_title) ?></li>
           </ol>
         </nav>
-        <h1 class="display-6 fw-semibold">Frontend Developer</h1>
+        <h1 class="display-6 fw-semibold"><?= htmlspecialchars($job->job_title) ?></h1>
       </div>
     </div>
   </section>
@@ -177,11 +179,21 @@
                   </div>
                   <div class="col-md-6">
                     <label class="form-label">Job Type</label>
-                    <select name="job_type" class="form-select">
+                    <select name="job_type" class="form-select" id="job_type">
                       <option value="Permanent" <?= set_select('job_type', 'Permanent') ?>>Permanent</option>
                       <option value="Contract" <?= set_select('job_type', 'Contract') ?>>Contract</option>
                       <option value="FTC" <?= set_select('job_type', 'FTC') ?>>FTC</option>
                     </select>
+                  </div>
+
+                  <div class="col-md-6" id="salary_group">
+                    <label class="form-label">Salary</label>
+                    <input type="number" name="salary" step="0.01" class="form-control" value="<?= set_value('salary') ?>" />
+                  </div>
+
+                  <div class="col-md-6" id="rate_group">
+                    <label class="form-label">Rate (Hourly)</label>
+                    <input type="number" name="rate" step="0.01" class="form-control" value="<?= set_value('rate') ?>" />
                   </div>
                   <div class="col-md-6">
                     <label class="form-label">Authorized to Work? *</label>
@@ -213,14 +225,7 @@
                     <?= form_error('sponsorship', '<div class="text-danger small">', '</div>'); ?>
                   </div>
 
-                  <div class="col-md-6">
-                    <label class="form-label">Salary</label>
-                    <input type="number" name="salary" step="0.01" class="form-control" value="<?= set_value('salary') ?>" />
-                  </div>
-                  <div class="col-md-6">
-                    <label class="form-label">Rate (Hourly)</label>
-                    <input type="number" name="rate" step="0.01" class="form-control" value="<?= set_value('rate') ?>" />
-                  </div>
+
                   <div class="col-md-6">
                     <label class="form-label">IR35 Type</label>
                     <select name="ir35_type" class="form-select">
@@ -269,8 +274,8 @@
         </div>
       </div>
       <hr class="border-light mt-4" />
-      <div class="text-center small">
-        &copy; 2025 Your Company. All rights reserved.
+      <div class="text-center small"> Copyright &copy; 2025 Scube, All rights reserved. Designed by DigitalWin Business Agency
+
       </div>
     </div>
   </footer>
@@ -278,6 +283,29 @@
 
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    function toggleFields() {
+      var jobType = $('#job_type').val();
+      if (jobType === 'Contract') {
+        $('#rate_group').show();
+        $('#salary_group').hide();
+      } else {
+        $('#rate_group').hide();
+        $('#salary_group').show();
+      }
+    }
+
+    $(document).ready(function() {
+      toggleFields(); // Call on page load (to support pre-selected value)
+
+      $('#job_type').on('change', function() {
+        toggleFields(); // Call on change
+      });
+    });
+  </script>
+
 </body>
 
 </html>

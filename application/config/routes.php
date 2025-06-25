@@ -74,7 +74,7 @@ $route['admin/login'] = 'Admin/Login/index';
 $route['admin/do_login'] = 'Admin/Login/do_login';
 $route['admin/logout'] = 'Admin/Login/logout';
 
-$route['admin/dashboard'] = 'Admin/dashboard/index';
+$route['admin/dashboard'] = 'Admin/Login/dashboard';
 
 
 $route['admin/banner'] = 'Admin/banner/index';
@@ -235,6 +235,7 @@ $route['admin/user/edit/(:num)'] = 'Admin/Login/edit/$1';
 $route['admin/user/update/(:num)'] = 'Admin/Login/update/$1';
 $route['admin/user/delete/(:num)'] = 'Admin/Login/delete/$1';
 $route['admin/user/change_password'] = 'admin/Login/change_password';
+$route['admin/unauth'] = 'admin/Login/unauth';
 
 
 $route['admin/jobs'] = 'Admin/JobsController/index';
@@ -249,3 +250,7 @@ $route['admin/jobs/delete/(:num)'] = 'Admin/JobsController/delete/$1';
 $route['admin/jobapplications/(:num)'] = 'admin/JobApplications/index/$1'; // status-wise listing
 $route['admin/jobapplications/view/(:num)'] = 'admin/JobApplications/view/$1';
 $route['admin/jobapplications/update-status/(:num)/(:num)'] = 'admin/JobApplications/update_status/$1/$2';
+
+
+$route['admin/user/profile'] = 'Admin/Login/profile';
+$route['admin/user/updateProfile/(:num)'] = 'Admin/Login/updateProfile/$1';

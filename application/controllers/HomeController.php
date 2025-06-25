@@ -7,8 +7,7 @@ class HomeController extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('Admin/contact_model'); // Load the Contact_model
-		$this->load->model('Admin/CareerFormModel'); // Load the Contact_model
+
 		$this->load->helper('captcha');
 
 		$this->load->model('Home_model');

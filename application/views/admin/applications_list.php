@@ -103,7 +103,14 @@
                             <td><?= htmlspecialchars($app->current_location) ?></td>
                             <td><?= htmlspecialchars($app->work_location_id) ?></td>
                             <td>
-                              <span class="badge bg-info"><?= htmlspecialchars($app->job_type) ?></span>
+                              <?php
+                              echo match ($app->job_type) {
+                                'Permanent' => '<span class="badge bg-success">Permanent</span>',
+                                'Contract'  => '<span class="badge bg-warning text-dark">Contract</span>',
+                                'FTC'       => '<span class="badge bg-info text-dark">FTC</span>',
+                                default     => '<span class="badge bg-secondary">Unknown</span>',
+                              };
+                              ?>
                             </td>
                             <td>
                               <?= $app->job_type === 'Permanent' ? '₹' . number_format($app->salary, 2) : '₹' . number_format($app->rate, 2) . '/hr' ?>
@@ -122,7 +129,7 @@
                             <td><?= date('Y-m-d', strtotime($app->created_at)) ?></td>
                             <td>
                               <a href="<?= base_url('admin/jobapplications/view/' . $app->id) ?>" class="btn btn-sm btn-outline-info">View</a>
-                              <a href="<?= base_url('uploads/' . $app->resume) ?>" target="_blank" class="btn btn-sm btn-outline-secondary">CV</a>
+                              <a href="<?= base_url($app->resume) ?>" target="_blank" class="btn btn-sm btn-outline-secondary">CV</a>
                             </td>
                           </tr>
                         <?php endforeach; ?>

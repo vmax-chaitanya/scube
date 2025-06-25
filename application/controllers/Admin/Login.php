@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Login extends CI_Controller
+class Login extends MY_Controller
 {
 
     public function __construct()
@@ -14,6 +14,11 @@ class Login extends CI_Controller
     public function index()
     {
         $this->load->view('admin/login');
+    }
+
+    public function dashboard()
+    {
+        $this->load->view('admin/dashboard');
     }
 
     public function do_login()
@@ -31,6 +36,7 @@ class Login extends CI_Controller
                 'username' => $user->username,
                 'email' => $user->email,
                 'user_type' => $user->user_type,
+                'img' => $user->image,
                 // Add other relevant user data as needed
             );
 
@@ -53,8 +59,15 @@ class Login extends CI_Controller
     // Show all users
     public function listing()
     {
+        $this->require_superadmin();
         $data['users'] = $this->user_model->get_all_users();
         $this->load->view('admin/userList', $data);
+    }
+    public function unauth()
+    {
+        // $this->require_superadmin();
+        // $data['users'] = $this->user_model->get_all_users();
+        $this->load->view('admin/unauth');
     }
 
     public function createUser()
@@ -271,5 +284,94 @@ class Login extends CI_Controller
         }
 
         return true;
+    }
+
+    public function profile()
+    {
+        $id = $this->session->userdata('user_id');
+        $data['user'] = $this->user_model->get_user_by_id($id);
+
+        $this->load->view('admin/profile', $data);
+    }
+    public function updateProfile($id)
+    {
+        $user = $this->user_model->get_user_by_id($id);
+        // if ($_POST) {
+        // Validation rules
+
+        // echo 
+        $this->form_validation->set_rules('full_name', 'Full Name', 'required');
+        $this->form_validation->set_rules('username', 'Username', 'required|callback_check_username[' . $id . ']');
+        $this->form_validation->set_rules('email', 'Email', 'required|valid_email|callback_check_email[' . $id . ']');
+        // $this->form_validation->set_rules('password', 'Password', 'required|min_length[6]');
+        $this->form_validation->set_rules('user_type', 'User Type', 'required|in_list[1,2,3]');
+        $this->form_validation->set_rules('status', 'Status', 'required|in_list[1,2,3]');
+        $this->form_validation->set_rules('mobile_number', 'Mobile Number', 'required');
+
+        if ($this->form_validation->run() === TRUE) {
+            // print_r($user);
+
+            // Handle image upload
+            $image = $user->image; // Default to existing
+            if (!empty($_FILES['image']['name'])) {
+                $config['upload_path'] = './assets/images/users/';
+                $config['allowed_types'] = 'jpg|jpeg|png|gif';
+                $config['file_name'] = time() . '_' . $_FILES['image']['name'];
+                $this->load->library('upload', $config);
+
+                if ($this->upload->do_upload('image')) {
+                    $uploadData = $this->upload->data();
+                    $image = $uploadData['file_name'];
+                } else {
+                    $this->session->set_flashdata('error', $this->upload->display_errors());
+                    redirect('admin/users/profile/' . $id);
+                }
+            }
+
+            $update_data = [
+                'full_name'     => $this->input->post('full_name'),
+                'username'      => $this->input->post('username'),
+                // 'email'         => $this->input->post('email'),
+                'mobile_number' => $this->input->post('mobile_number'),
+                'user_type'     => $this->input->post('user_type'),
+                'status'        => $this->input->post('status'),
+                'image'         => $image,
+                'updated_at'    => date('Y-m-d H:i:s')
+            ];
+
+            // Update password if provided
+            if (!empty($this->input->post('password'))) {
+                $update_data['password'] = password_hash($this->input->post('password'), PASSWORD_BCRYPT);
+            }
+
+            $user_data = array(
+                'user_id' => $user->id,
+                'username' => $user->username,
+                // 'email' => $user->email,
+                // 'user_type' => $user->user_type,
+                'img' => $image,
+                // Add other relevant user data as needed
+            );
+
+            $this->session->set_userdata($user_data);
+
+            $this->user_model->update_user($id, $update_data);
+            $this->session->set_flashdata('success', 'Profile updated successfully.');
+            redirect('admin/user/profile');
+        } else {
+            // ❌ Validation failed, reload view with errors and old data
+            $data['user'] = (object)[
+                'id'            => $id,
+                'full_name'     => $this->input->post('full_name'),
+                'username'      => $this->input->post('username'),
+                'email'         => $this->input->post('email'),
+                'mobile_number' => $this->input->post('mobile_number'),
+                'user_type'     => $this->input->post('user_type'),
+                'status'        => $this->input->post('status'),
+                'image'         => $user->image // keep existing image
+            ];
+        }
+
+        $this->load->view('admin/profile', $data);
     }
 }

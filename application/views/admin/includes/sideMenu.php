@@ -4,20 +4,20 @@
           <a href="index.html" class="logo">
               <span>
                   <img
-                      src="<?php echo base_url(); ?>assets/admin//images/logo-sm.png"
+                      src="<?= base_url(); ?>assets/home/images/logo.png"
                       alt="logo-small"
                       class="logo-sm" />
               </span>
-              <span class="">
+              <!-- <span class="">
                   <img
-                      src="<?php echo base_url(); ?>assets/admin//images/logo-light.png"
+                      src="<?= base_url(); ?>assets/home/images/logo.png"
                       alt="logo-large"
                       class="logo-lg logo-light" />
                   <img
-                      src="<?php echo base_url(); ?>assets/admin//images/logo-dark.png"
+                      src="<?= base_url(); ?>assets/home/images/logo.png"
                       alt="logo-large"
                       class="logo-lg logo-dark" />
-              </span>
+              </span> -->
           </a>
       </div>
       <!--end brand-->

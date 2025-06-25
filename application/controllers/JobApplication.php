@@ -85,6 +85,7 @@ class JobApplication extends CI_Controller
                 'salary'            => $this->input->post('salary'),
                 'rate'              => $this->input->post('rate'),
                 'source'     => $this->input->post('hear_about_us'),
+                'ir35_type'     => $this->input->post('ir35_type'),
                 'status'            => 1,
                 'created_at'        => date('Y-m-d H:i:s'),
                 'job_id'            => $job->id // assuming you store job_id with applications
