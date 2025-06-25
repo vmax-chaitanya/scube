@@ -89,9 +89,10 @@
                     </thead>
                     <tbody>
                       <?php if (!empty($users)): ?>
-                        <?php foreach ($users as $user): ?>
+                        <?php $i = 0;
+                        foreach ($users as $user): $i++; ?>
                           <tr>
-                            <td><?= htmlspecialchars($user->id); ?></td>
+                            <td><?= $i; ?></td>
                             <td><?= htmlspecialchars($user->username); ?></td>
                             <td><?= htmlspecialchars($user->full_name); ?></td>
                             <td><?= htmlspecialchars($user->email); ?></td>

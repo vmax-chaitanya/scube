@@ -32,4 +32,12 @@ class JobsModel extends CI_Model
     {
         return $this->db->delete($this->table, ['id' => $id]);
     }
+    public function is_slug_unique($slug, $exclude_id = null)
+    {
+        $this->db->where('slug', $slug);
+        if ($exclude_id) {
+            $this->db->where('id !=', $exclude_id);
+        }
+        return $this->db->get('jobs')->num_rows() === 0;
+    }
 }

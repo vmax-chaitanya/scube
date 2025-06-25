@@ -52,43 +52,20 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 //////////////////////Home Controller//////
 $route['default_controller'] = 'HomeController';
-$route['404_override'] = 'HomeController/custom_404';
+// $route['404_override'] = 'HomeController/custom_404';
 $route['translate_uri_dashes'] = FALSE;
 
-$route['about'] = 'HomeController/about';
-$route['privacy-policy'] = 'HomeController/privacy_policy';
-$route['disclamer'] = 'HomeController/disclamer';
-$route['why-only-we'] = 'HomeController/why_only_we';
-$route['why-digital-marketing'] = 'HomeController/why_digital_marketing';
-$route['contact'] = 'HomeController/contact';
-$route['blog'] = 'HomeController/blog';
-$route['faq'] = 'HomeController/faq';
-$route['gallery'] = 'HomeController/gallery';
-$route['services'] = 'HomeController/services';
-$route['category-services/(:any)'] = 'HomeController/category_services/$1';
-$route['services/(:any)'] = 'HomeController/service_detail/$1';
-$route['sent-email'] = 'HomeController/send_email';
-$route['sendEmail'] = 'HomeController/sendEmail';
-
-$route['training'] = 'HomeController/training';
-$route['training-enquiry'] = 'HomeController/training_enquiry';
-$route['popup-enquiry'] = 'HomeController/popup_enquiry';
-$route['career-form'] = 'HomeController/career_form';
-$route['contact-enquiry'] = 'HomeController/contact_enquiry';
-$route['training/(:any)'] = 'HomeController/training_detail/$1';
-$route['blogs'] = 'HomeController/blogs';
-$route['blog-detail/(:num)'] = 'HomeController/blog_detail/$1';
-
-$route['careers'] = 'HomeController/careers';
-$route['seo'] = 'HomeController/seo';
-$route['generate-captcha/(:any)'] = 'HomeController/generate_captcha/$1';
-$route['outdoor-advertising'] = 'HomeController/OutdoorAdvertising';
+// $route['about'] = 'HomeController/about';
 
 
+$route['jobs/view/(:any)'] = 'HomeController/job_details/$1';
 
 
-$route['job-application'] = 'JobApplication/apply';
+// $route['job-application'] = 'JobApplication/apply';
 $route['job-application/success'] = 'JobApplication/success';
+$route['job-application/(:any)'] = 'JobApplication/apply/$1';
+
+
 
 //////////Home Controller//////
 
@@ -266,3 +243,9 @@ $route['admin/jobs/store'] = 'Admin/JobsController/store';
 $route['admin/jobs/edit/(:num)'] = 'Admin/JobsController/edit/$1';
 $route['admin/jobs/update/(:num)'] = 'Admin/JobsController/update/$1';
 $route['admin/jobs/delete/(:num)'] = 'Admin/JobsController/delete/$1';
+
+
+
+$route['admin/jobapplications/(:num)'] = 'admin/JobApplications/index/$1'; // status-wise listing
+$route['admin/jobapplications/view/(:num)'] = 'admin/JobApplications/view/$1';
+$route['admin/jobapplications/update-status/(:num)/(:num)'] = 'admin/JobApplications/update_status/$1/$2';

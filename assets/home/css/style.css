@@ -21,6 +21,9 @@ body {
   border-radius: 50%;
 }
 
+.form-title {
+  color: var(--primary-color);
+}
 /* Section Heading */
 section .text-center h2 {
   font-size: 2.2rem;
@@ -276,4 +279,59 @@ section .text-center p {
 .breadcrumb-banner .container {
   padding-top: 50px;
   padding-bottom: 50px;
+}
+
+/* .job-icon,
+.job-title {
+  color: var(--accent-color);
+} */
+
+.job-icon {
+  color: var(--primary-color);
+  margin-right: 0.5rem;
+}
+
+.job-title-wrapper {
+  max-width: 600px; /* You can adjust this value */
+  width: 100%;
+}
+
+.job-title {
+  font-size: 1rem; /* adjust as needed */
+  /* font-weight: bold; */
+  color: var(--primary-color); /* or use #30af4b directly */
+  letter-spacing: -1px; /* tighten spacing between letters */
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .job-title {
+    font-size: 1.8rem;
+  }
+}
+
+.job-meta-list li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #333;
+}
+
+.job-meta-list li .job-icon {
+  color: var(--primary-color);
+  margin-right: 10px;
+  font-size: 1.1rem;
+}
+
+.sticky-form-wrapper {
+  position: sticky;
+  top: 100px;
+}
+/* Add this to your custom CSS file */
+.sticky-form {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 100px; /* Adjust depending on your header */
+  z-index: 2;
 }

@@ -78,13 +78,13 @@
                                       <a class="nav-link" href="<?php echo base_url(); ?>admin/jobs/">Jobs List</a>
                                   </li>
 
-                                  <li class="nav-item">
+                                  <!-- <li class="nav-item">
                                       <a class="nav-link" href="apps-calendar.html">Calendar</a>
                                   </li>
 
                                   <li class="nav-item">
                                       <a class="nav-link" href="apps-invoice.html">Invoice</a>
-                                  </li>
+                                  </li> -->
                                   <li class="nav-item">
                                       <a
                                           class="nav-link"
@@ -93,23 +93,30 @@
                                           role="button"
                                           aria-expanded="false"
                                           aria-controls="sidebarAnalytics">
-                                          <span>Analytics</span>
+                                          <span>Job Applications</span>
                                       </a>
                                       <div class="collapse" id="sidebarAnalytics">
                                           <ul class="nav flex-column">
                                               <li class="nav-item">
-                                                  <a href="analytics-customers.html" class="nav-link">Customers</a>
+                                                  <a href="<?php echo base_url(); ?>admin/jobapplications/1" class="nav-link">Pending</a>
                                               </li>
 
                                               <li class="nav-item">
-                                                  <a href="analytics-reports.html" class="nav-link">Reports</a>
+                                                  <a href="<?php echo base_url(); ?>admin/jobapplications/2" class="nav-link">Reviewed</a>
+                                              </li>
+                                              <li class="nav-item">
+                                                  <a href="<?php echo base_url(); ?>admin/jobapplications/3" class="nav-link">Selected</a>
+                                              </li>
+
+                                              <li class="nav-item">
+                                                  <a href="<?php echo base_url(); ?>admin/jobapplications/4" class="nav-link">Rejected</a>
                                               </li>
 
                                           </ul>
 
                                       </div>
                                   </li>
-                                  <li class="nav-item">
+                                  <!-- <li class="nav-item">
                                       <a
                                           class="nav-link"
                                           href="#sidebarProjects"
@@ -201,9 +208,9 @@
                                               </li>
 
                                           </ul>
-                                          <!--end nav-->
-                                      </div>
-                                  </li>
+                                         
+                          </div>
+                      </li> -->
 
 
 

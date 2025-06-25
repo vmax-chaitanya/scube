@@ -96,7 +96,7 @@ class JobsController extends CI_Controller
             $data['job'] = $this->jobsModel->get_job($id);
             $this->load->view('admin/jobsEdit', $data);
         } else {
-            $data = $this->_get_post_data();
+            $data = $this->_get_post_data($id);
             $data['image'] = $image_name; // Add image path
             $this->jobsModel->update_job($id, $data);
 
@@ -114,10 +114,19 @@ class JobsController extends CI_Controller
         redirect('admin/jobs');
     }
 
-    private function _get_post_data()
+    private function _get_post_data($id = null)
     {
+        $job_title = $this->input->post('job_title');
+        $slug = url_title($job_title, 'dash', true); // create slug from title
+
+        // Check for uniqueness only when creating a new job
+        if (!$id || !$this->jobsModel->is_slug_unique($slug, $id)) {
+            $slug .= '-' . time(); // make it unique by appending timestamp
+        }
+
         return [
-            'job_title'            => $this->input->post('job_title'),
+            'job_title'            => $job_title,
+            'slug'                 => $slug,
             'company_name'         => $this->input->post('company_name'),
             'location'             => $this->input->post('location'),
             'job_type'             => $this->input->post('job_type'),

@@ -45,9 +45,9 @@
                   </div>
                   <div class="col-auto">
                     <!-- <button type="button" class="btn btn-primary">Primary</button> -->
-                    <a href="<?= base_url('admin/jobs/create'); ?>" class="btn btn-primary">
+                    <!-- <a href="<?= base_url('admin/jobs/create'); ?>" class="btn btn-primary">
                       <i class="bi bi-plus-circle"></i> Add New
-                    </a>
+                    </a> -->
                   </div>
                   <!--end col-->
                 </div>
@@ -56,11 +56,7 @@
               <!--end card-header-->
 
               <div class="card-body pt-0">
-                <?php if (validation_errors()) : ?>
-                  <div class="alert alert-danger">
-                    <?= validation_errors(); ?>
-                  </div>
-                <?php endif; ?>
+
 
                 <?php if ($this->session->flashdata('error')) : ?>
                   <div class="alert alert-danger">
@@ -74,73 +70,70 @@
                   </div>
                 <?php endif; ?>
                 <div class="table-responsive">
+
+
                   <table class="table datatable" id="datatable_1">
+                    <!-- <table class="table table-bordered table-striped datatable" id="datatable_applications"> -->
                     <thead class="table-light">
                       <tr>
                         <th>ID</th>
-                        <th>Job Title</th>
-                        <th>Company</th>
+                        <th>Job ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
                         <th>Location</th>
+                        <th>Work Location</th>
                         <th>Job Type</th>
-                        <!-- <th>Department</th> -->
-                        <th>Experience</th>
-                        <th>Salary</th>
+                        <th>Salary / Rate</th>
                         <th>Status</th>
-                        <th>Posted Date</th>
+                        <th>Submitted</th>
                         <th>Actions</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <?php if (!empty($jobs)): ?>
+                      <?php if (!empty($applications)): ?>
                         <?php $i = 0;
-                        foreach ($jobs as $job): $i++; ?>
+                        foreach ($applications as $app): $i++; ?>
                           <tr>
                             <td><?= $i; ?></td>
-                            <td><?= htmlspecialchars($job->job_title); ?></td>
-                            <td><?= htmlspecialchars($job->company_name); ?></td>
-                            <td><?= htmlspecialchars($job->location); ?></td>
+                            <td><?= htmlspecialchars($app->job_id) ?></td>
+                            <td><?= htmlspecialchars($app->first_name . ' ' . $app->last_name) ?></td>
+                            <td><?= htmlspecialchars($app->email) ?></td>
+                            <td><?= htmlspecialchars($app->phone) ?></td>
+                            <td><?= htmlspecialchars($app->current_location) ?></td>
+                            <td><?= htmlspecialchars($app->work_location_id) ?></td>
                             <td>
-                              <?php
-                              echo match ($job->job_type) {
-                                'Full-time'  => '<span class="badge bg-primary">Full-time</span>',
-                                'Part-time'  => '<span class="badge bg-info text-dark">Part-time</span>',
-                                'Internship' => '<span class="badge bg-warning text-dark">Internship</span>',
-                                'Freelance'  => '<span class="badge bg-success">Freelance</span>',
-                                'Remote'     => '<span class="badge bg-dark">Remote</span>',
-                                'Other'      => '<span class="badge bg-secondary">Other</span>',
-                                default      => '<span class="badge bg-light text-dark">N/A</span>',
-                              };
-                              ?>
+                              <span class="badge bg-info"><?= htmlspecialchars($app->job_type) ?></span>
                             </td>
-                            <!-- <td><?= htmlspecialchars($job->department); ?></td> -->
-                            <td><?= htmlspecialchars($job->experience_required); ?></td>
                             <td>
-                              <?= $job->salary_min . ' - ' . $job->salary_max; ?>
+                              <?= $app->job_type === 'Permanent' ? '₹' . number_format($app->salary, 2) : '₹' . number_format($app->rate, 2) . '/hr' ?>
                             </td>
                             <td>
                               <?php
-                              echo match ($job->status) {
-                                'Active'   => '<span class="badge bg-success">Active</span>',
-                                'Closed'   => '<span class="badge bg-danger">Closed</span>',
-                                'Draft'    => '<span class="badge bg-secondary">Draft</span>',
-                                default    => '<span class="badge bg-dark">Unknown</span>',
+                              echo match ($app->status) {
+                                '1' => '<span class="badge bg-secondary">Pending</span>',
+                                '2' => '<span class="badge bg-primary">Review</span>',
+                                '3' => '<span class="badge bg-success">Selected</span>',
+                                '4' => '<span class="badge bg-danger">Rejected</span>',
+                                default => '<span class="badge bg-dark">Unknown</span>'
                               };
                               ?>
                             </td>
-                            <td><?= date('Y-m-d', strtotime($job->posted_date)); ?></td>
+                            <td><?= date('Y-m-d', strtotime($app->created_at)) ?></td>
                             <td>
-                              <a href="<?= base_url('admin/jobs/edit/' . $job->id); ?>" class="btn btn-sm btn-secondary">Edit</a>
-                              <a href="<?= base_url('admin/jobs/delete/' . $job->id); ?>" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this job?')">Delete</a>
+                              <a href="<?= base_url('admin/jobapplications/view/' . $app->id) ?>" class="btn btn-sm btn-outline-info">View</a>
+                              <a href="<?= base_url('uploads/' . $app->resume) ?>" target="_blank" class="btn btn-sm btn-outline-secondary">CV</a>
                             </td>
                           </tr>
                         <?php endforeach; ?>
                       <?php else: ?>
                         <tr>
-                          <td colspan="11">No jobs found.</td>
+                          <td colspan="12" class="text-center">No job applications found.</td>
                         </tr>
                       <?php endif; ?>
                     </tbody>
                   </table>
+
 
                 </div>
               </div>
