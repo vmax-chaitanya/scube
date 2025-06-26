@@ -1,7 +1,7 @@
   <div class="startbar d-print-none">
       <!--start brand-->
       <div class="brand">
-          <a href="index.html" class="logo">
+          <a href="<?php echo base_url(); ?>admin/dashboard" class="logo">
               <span>
                   <img
                       src="<?= base_url(); ?>assets/home/images/logo.png"

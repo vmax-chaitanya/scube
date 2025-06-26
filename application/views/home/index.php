@@ -80,7 +80,7 @@
                 <img src="<?= base_url($job->image ?? 'assets/images/job-placeholder.png') ?>" class="card-img-top" alt="Job Image">
 
                 <!-- Bookmark Icon -->
-                <button class="bookmark-btn"><i class="bi bi-bookmark"></i></button>
+                <!-- <button class="bookmark-btn"><i class="bi bi-bookmark"></i></button> -->
 
                 <div class="card-body d-flex flex-column">
                   <h5 class="card-title job-title mb-2"><?= htmlspecialchars($job->job_title) ?></h5>

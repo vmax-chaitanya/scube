@@ -8,6 +8,12 @@
     <link href="<?php echo base_url(); ?>assets/admin/css/app.min.css" rel="stylesheet" type="text/css" />
 
     <link
-      href="<?php echo base_url(); ?>assets/admin//libs/simple-datatables/style.css"
+      href="<?php echo base_url(); ?>assets/admin/libs/simple-datatables/style.css"
       rel="stylesheet"
       type="text/css" />
+    <script>
+      (function() {
+        const savedTheme = localStorage.getItem("bs-theme") || "light";
+        document.documentElement.setAttribute("data-bs-theme", savedTheme);
+      })();
+    </script>

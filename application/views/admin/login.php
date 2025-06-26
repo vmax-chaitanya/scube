@@ -5,7 +5,7 @@
 
 
     <meta charset="utf-8" />
-    <title>Rizz | Rizz - Admin & Dashboard Template</title>
+    <title>SCUBE - Admin & Dashboard </title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="" name="author" />
@@ -98,6 +98,6 @@
 </body>
 <!--end body-->
 
-<!-- Mirrored from mannatthemes.com/rizz/default/auth-login.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 11 Jun 2025 16:13:09 GMT -->
+
 
 </html>

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr" data-startbar="light" data-bs-theme="light">
-<!-- Mirrored from mannatthemes.com/rizz/default/forms-elements.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 11 Jun 2025 16:13:38 GMT -->
+
 
 <head>
   <meta charset="utf-8" />
-  <title>Rizz | Rizz - Admin & Dashboard Template</title>
+  <title>SCUBE - Admin & Dashboard </title>
   <meta
     name="viewport"
     content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -180,6 +180,6 @@
 </body>
 <!--end body-->
 
-<!-- Mirrored from mannatthemes.com/rizz/default/forms-elements.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 11 Jun 2025 16:13:38 GMT -->
+
 
 </html>

@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr" data-startbar="light" data-bs-theme="light">
 
 
-<!-- Mirrored from mannatthemes.com/rizz/default/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 11 Jun 2025 16:11:56 GMT -->
+
 
 <head>
 
@@ -146,7 +146,5 @@
 </body>
 <!--end body-->
 
-
-<!-- Mirrored from mannatthemes.com/rizz/default/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 11 Jun 2025 16:12:34 GMT -->
 
 </html>
