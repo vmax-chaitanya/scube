@@ -27,11 +27,14 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Jobs</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+          <li class="nav-item">
+            <a class="nav-link active home-link" href="https://scubedimensions.com/">
+              <i class="bi bi-house home-icon"></i> Home
+            </a>
+          </li>
         </ul>
+
+
       </div>
     </div>
   </nav>

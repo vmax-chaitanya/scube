@@ -343,3 +343,26 @@ section .text-center p {
   top: 100px; /* Adjust depending on your header */
   z-index: 2;
 }
+
+/* ///icon home */
+.home-link {
+  display: flex;
+  align-items: center;
+  gap: 6px; /* space between icon and text */
+  transition: color 0.3s, background-color 0.3s;
+}
+
+.home-icon {
+  font-size: 1.3rem; /* adjust icon size */
+  font-weight: 600;
+  /* color: #0d6efd; Bootstrap primary color */
+}
+
+/* Hover effect */
+.home-link:hover {
+  color: #0a58ca !important;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  padding: 5px 10px;
+  text-decoration: none;
+}

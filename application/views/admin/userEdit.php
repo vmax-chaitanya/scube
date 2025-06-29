@@ -117,7 +117,7 @@
                             <option value="">Select</option>
                             <option value="1" <?= ($user->user_type == 1) ? 'selected' : '' ?>>Super Admin</option>
                             <option value="2" <?= ($user->user_type == 2) ? 'selected' : '' ?>>Admin</option>
-                            <option value="3" <?= ($user->user_type == 3) ? 'selected' : '' ?>>User</option>
+                            <option value="3" <?= ($user->user_type == 3) ? 'selected' : '' ?>>Resume Viewer</option>
                           </select>
                         </div>
                       </div>

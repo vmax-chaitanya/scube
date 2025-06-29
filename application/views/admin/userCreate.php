@@ -94,7 +94,7 @@
                             <option value="">Select</option>
                             <option value="1">Super Admin</option>
                             <option value="2">Admin</option>
-                            <option value="3">User</option>
+                            <option value="3">Resume Viewer</option>
                           </select>
                         </div>
                       </div>

@@ -67,16 +67,20 @@
                               <i class="iconoir-view-grid menu-icon"></i>
                               <span>Dasboard</span>
                           </a>
+                          <?php
+                            $user_type = $this->session->userdata('user_type'); ?>
                           <div class="collapse show" id="sidebarApplications">
                               <ul class="nav flex-column">
-
-                                  <li class="nav-item">
-                                      <a class="nav-link" href="<?php echo base_url(); ?>admin/user/">Users</a>
-                                  </li>
-
-                                  <li class="nav-item">
-                                      <a class="nav-link" href="<?php echo base_url(); ?>admin/jobs/">Jobs List</a>
-                                  </li>
+                                  <?php if ($user_type == 1) { ?>
+                                      <li class="nav-item">
+                                          <a class="nav-link" href="<?php echo base_url(); ?>admin/user/">Users</a>
+                                      </li>
+                                  <?php } ?>
+                                  <?php if ($user_type == 1 || $user_type == 2) { ?>
+                                      <li class="nav-item">
+                                          <a class="nav-link" href="<?php echo base_url(); ?>admin/jobs/">Jobs List</a>
+                                      </li>
+                                  <?php } ?>
 
                                   <!-- <li class="nav-item">
                                       <a class="nav-link" href="apps-calendar.html">Calendar</a>
@@ -85,37 +89,41 @@
                                   <li class="nav-item">
                                       <a class="nav-link" href="apps-invoice.html">Invoice</a>
                                   </li> -->
-                                  <li class="nav-item">
-                                      <a
-                                          class="nav-link"
-                                          href="#sidebarAnalytics"
-                                          data-bs-toggle="collapse"
-                                          role="button"
-                                          aria-expanded="false"
-                                          aria-controls="sidebarAnalytics">
-                                          <span>Job Applications</span>
-                                      </a>
-                                      <div class="collapse" id="sidebarAnalytics">
-                                          <ul class="nav flex-column">
-                                              <li class="nav-item">
-                                                  <a href="<?php echo base_url(); ?>admin/jobapplications/1" class="nav-link">Pending</a>
-                                              </li>
 
-                                              <li class="nav-item">
-                                                  <a href="<?php echo base_url(); ?>admin/jobapplications/2" class="nav-link">Reviewed</a>
-                                              </li>
-                                              <li class="nav-item">
-                                                  <a href="<?php echo base_url(); ?>admin/jobapplications/3" class="nav-link">Selected</a>
-                                              </li>
+                                  <?php if ($user_type == 1  || $user_type == 2 || $user_type == 3) { ?>
 
-                                              <li class="nav-item">
-                                                  <a href="<?php echo base_url(); ?>admin/jobapplications/4" class="nav-link">Rejected</a>
-                                              </li>
+                                      <li class="nav-item">
+                                          <a
+                                              class="nav-link"
+                                              href="#sidebarAnalytics"
+                                              data-bs-toggle="collapse"
+                                              role="button"
+                                              aria-expanded="true"
+                                              aria-controls="sidebarAnalytics">
+                                              <span>Job Applications</span>
+                                          </a>
+                                          <div class="collapse show" id="sidebarAnalytics">
+                                              <ul class="nav flex-column">
+                                                  <li class="nav-item">
+                                                      <a href="<?php echo base_url(); ?>admin/jobapplications/1" class="nav-link">Pending</a>
+                                                  </li>
 
-                                          </ul>
+                                                  <li class="nav-item">
+                                                      <a href="<?php echo base_url(); ?>admin/jobapplications/2" class="nav-link">Reviewed</a>
+                                                  </li>
+                                                  <li class="nav-item">
+                                                      <a href="<?php echo base_url(); ?>admin/jobapplications/3" class="nav-link">Selected</a>
+                                                  </li>
 
-                                      </div>
-                                  </li>
+                                                  <li class="nav-item">
+                                                      <a href="<?php echo base_url(); ?>admin/jobapplications/4" class="nav-link">Rejected</a>
+                                                  </li>
+
+                                              </ul>
+
+                                          </div>
+                                      </li>
+                                  <?php } ?>
                                   <!-- <li class="nav-item">
                                       <a
                                           class="nav-link"

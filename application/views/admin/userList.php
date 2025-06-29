@@ -102,7 +102,7 @@
                               echo match ($user->user_type) {
                                 '1' => '<span class="badge bg-primary">Super Admin</span>',
                                 '2' => '<span class="badge bg-info text-dark">Admin</span>',
-                                '3' => '<span class="badge bg-secondary">User</span>',
+                                '3' => '<span class="badge bg-secondary">Resume Viewer</span>',
                                 default => '<span class="badge bg-dark">Unknown</span>',
                               };
                               ?>
