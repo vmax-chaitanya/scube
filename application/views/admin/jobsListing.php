@@ -102,12 +102,10 @@
                             <td>
                               <?php
                               echo match ($job->job_type) {
-                                'Full-time'  => '<span class="badge bg-primary">Full-time</span>',
-                                'Part-time'  => '<span class="badge bg-info text-dark">Part-time</span>',
-                                'Internship' => '<span class="badge bg-warning text-dark">Internship</span>',
-                                'Freelance'  => '<span class="badge bg-success">Freelance</span>',
-                                'Remote'     => '<span class="badge bg-dark">Remote</span>',
-                                'Other'      => '<span class="badge bg-secondary">Other</span>',
+                                'Permanent'  => '<span class="badge bg-primary">Permanent</span>',
+                                'Contract'  => '<span class="badge bg-info text-dark">Contract</span>',
+                                'FTC' => '<span class="badge bg-warning text-dark">FTC</span>',
+
                                 default      => '<span class="badge bg-light text-dark">N/A</span>',
                               };
                               ?>
@@ -121,7 +119,7 @@
                               <?php
                               echo match ($job->status) {
                                 'Active'   => '<span class="badge bg-success">Active</span>',
-                                'Closed'   => '<span class="badge bg-danger">Closed</span>',
+                                // 'Closed'   => '<span class="badge bg-danger">Closed</span>',
                                 'Draft'    => '<span class="badge bg-secondary">Draft</span>',
                                 default    => '<span class="badge bg-dark">Unknown</span>',
                               };
@@ -130,7 +128,10 @@
                             <td><?= date('Y-m-d', strtotime($job->posted_date)); ?></td>
                             <td>
                               <a href="<?= base_url('admin/jobs/edit/' . $job->id); ?>" class="btn btn-sm btn-secondary">Edit</a>
-                              <a href="<?= base_url('admin/jobs/delete/' . $job->id); ?>" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this job?')">Delete</a>
+                              <?php $user_type = $this->session->userdata('user_type');
+                              if ($user_type == 1) { ?>
+                                <a href="<?= base_url('admin/jobs/delete/' . $job->id); ?>" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this job?')">Delete</a>
+                              <?php } ?>
                             </td>
                           </tr>
                         <?php endforeach; ?>

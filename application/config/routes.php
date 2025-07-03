@@ -247,7 +247,8 @@ $route['admin/jobs/delete/(:num)'] = 'Admin/JobsController/delete/$1';
 
 
 
-$route['admin/jobapplications/(:num)'] = 'admin/JobApplications/index/$1'; // status-wise listing
+// $route['admin/jobapplications/(:num)'] = 'admin/JobApplications/index/$1'; // status-wise listing
+$route['admin/jobapplications/(:num)/job/(:num)'] = 'admin/JobApplications/index/$1/$2';
 $route['admin/jobapplications/view/(:num)'] = 'admin/JobApplications/view/$1';
 $route['admin/jobapplications/update-status/(:num)/(:num)'] = 'admin/JobApplications/update_status/$1/$2';
 

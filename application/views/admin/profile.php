@@ -110,7 +110,7 @@
                       </div>
 
                       <!-- User Type -->
-                      <div class="mb-3 row">
+                      <!-- <div class="mb-3 row">
                         <label for="user_type" class="col-sm-2 col-form-label text-end">User Type</label>
                         <div class="col-sm-10">
                           <select name="user_type" class="form-select" id="user_type" required>
@@ -120,10 +120,10 @@
                             <option value="3" <?= ($user->user_type == 3) ? 'selected' : '' ?>>User</option>
                           </select>
                         </div>
-                      </div>
+                      </div> -->
 
                       <!-- Status -->
-                      <div class="mb-3 row">
+                      <!-- <div class="mb-3 row">
                         <label for="status" class="col-sm-2 col-form-label text-end">Status</label>
                         <div class="col-sm-10">
                           <select name="status" class="form-select" id="status" required>
@@ -133,11 +133,11 @@
                             <option value="3" <?= ($user->status == 3) ? 'selected' : '' ?>>Suspended</option>
                           </select>
                         </div>
-                      </div>
+                      </div> -->
 
                       <!-- Image Upload -->
                       <div class="mb-3 row">
-                        <label for="image" class="col-sm-2 col-form-label text-end">Image</label>
+                        <label for="image" class="col-sm-2 col-form-label text-end">Profile Image</label>
                         <div class="col-sm-10">
                           <input type="file" name="image" id="image" class="form-control">
                           <?php if (!empty($user->image)) : ?>
@@ -150,7 +150,7 @@
                     <!-- Submit -->
                     <div class="row">
                       <div class="col text-center">
-                        <button type="submit" class="btn btn-primary">Update User</button>
+                        <button type="submit" class="btn btn-primary">Update Me</button>
                       </div>
                     </div>
                   </div>

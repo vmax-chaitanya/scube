@@ -14,6 +14,32 @@
   <meta content="" name="author" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <?php include('includes/styles.php'); ?>
+  <style>
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(108, 117, 125, 0.5);
+      }
+
+      70% {
+        box-shadow: 0 0 0 10px rgba(108, 117, 125, 0);
+      }
+
+      100% {
+        box-shadow: 0 0 0 0 rgba(108, 117, 125, 0);
+      }
+    }
+
+    .badge-animated {
+      position: relative;
+      animation: pulse 1.5s infinite;
+    }
+
+    /* .badge-animated {
+  position: relative;
+  animation: pulse 1.5s infinite;
+  box-shadow: 0 0 5px rgba(108, 117, 125, 0.6);
+} */
+  </style>
 
 </head>
 
@@ -71,6 +97,20 @@
                 <?php endif; ?>
                 <div class="table-responsive">
 
+                  <form method="get" class="mb-3" id="jobFilterForm">
+                    <div class="row">
+                      <div class="col-md-4">
+                        <select name="job_id" id="jobFilterSelect" class="form-select" onchange="filterByJob()">
+                          <option value="">-- Filter by Job --</option>
+                          <?php foreach ($jobs as $job): ?>
+                            <option value="<?= $job->id ?>" <?= ($selected_job_id == $job->id) ? 'selected' : '' ?>>
+                              <?= htmlspecialchars($job->job_title) ?>
+                            </option>
+                          <?php endforeach; ?>
+                        </select>
+                      </div>
+                    </div>
+                  </form>
 
                   <table class="table datatable" id="datatable_1">
                     <!-- <table class="table table-bordered table-striped datatable" id="datatable_applications"> -->
@@ -118,7 +158,7 @@
                             <td>
                               <?php
                               echo match ($app->status) {
-                                '1' => '<span class="badge bg-secondary">Pending</span>',
+                                '1' => '<span class="badge bg-secondary badge-animated">New</span>',
                                 '2' => '<span class="badge bg-primary">Review</span>',
                                 '3' => '<span class="badge bg-success">Selected</span>',
                                 '4' => '<span class="badge bg-danger">Rejected</span>',
@@ -171,6 +211,17 @@
   <!-- Javascript  -->
   <!-- vendor js -->
   <?php include('includes/scripts.php'); ?>
+  <script>
+    function filterByJob() {
+      const jobId = document.getElementById("jobFilterSelect").value;
+      const statusId = <?= json_encode($status) ?>;
+      if (jobId) {
+        window.location.href = `<?= base_url('admin/jobapplications') ?>/${statusId}/job/${jobId}`;
+      } else {
+        window.location.href = `<?= base_url('admin/jobapplications') ?>/${statusId}`;
+      }
+    }
+  </script>
 
 
 

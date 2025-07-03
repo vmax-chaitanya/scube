@@ -105,12 +105,14 @@
                         <label for="job_type" class="form-label">Job Type</label>
                         <select class="form-select" name="job_type" id="job_type" required>
                           <option value="">Select</option>
-                          <option value="Full-time">Full-time</option>
+                          <!-- <option value="Full-time">Full-time</option>
                           <option value="Part-time">Part-time</option>
                           <option value="Internship">Internship</option>
                           <option value="Freelance">Freelance</option>
-                          <option value="Remote">Remote</option>
-                          <option value="Other">Other</option>
+                          <option value="Remote">Remote</option> -->
+                          <option value="Permanent">Permanent</option>
+                          <option value="Contract">Contract</option>
+                          <option value="FTC">FTC</option>
                         </select>
                       </div>
 
@@ -138,7 +140,7 @@
                         <select class="form-select" name="status" id="status">
                           <option value="Draft">Draft</option>
                           <option value="Active">Active</option>
-                          <option value="Closed">Closed</option>
+                          <!-- <option value="Closed">Closed</option> -->
                         </select>
                       </div>
 

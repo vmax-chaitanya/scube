@@ -107,10 +107,16 @@ class JobsController extends CI_Controller
 
 
 
+    // public function delete($id)
+    // {
+    //     $this->jobsModel->delete_job($id);
+    //     $this->session->set_flashdata('success', 'Job deleted successfully.');
+    //     redirect('admin/jobs');
+    // }
     public function delete($id)
     {
-        $this->jobsModel->delete_job($id);
-        $this->session->set_flashdata('success', 'Job deleted successfully.');
+        $this->jobsModel->mark_as_deleted($id); // Call new soft delete method
+        $this->session->set_flashdata('success', 'Job marked as deleted.');
         redirect('admin/jobs');
     }
 

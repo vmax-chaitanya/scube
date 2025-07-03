@@ -10,15 +10,26 @@ class JobApplications extends CI_Controller
             redirect('admin/login');
         }
         $this->load->model('Admin/JobApplications_model');
+        // $this->load->model('Admin/JobsModel');
+        $this->load->model('Admin/jobsModel');
     }
 
-    public function index($status_id = 1) // default pending
+    public function index($status_id = 1, $job_id = null)
     {
-        $data['applications'] = $this->JobApplications_model->get_applications_by_status($status_id);
-        $data['status'] = $status_id;
 
-        // print_r($data['applications']);
+        $data['jobs'] = $this->jobsModel->get_all_jobs();
+        // print_r($data['jobs']);
         // exit;
+        $data['status'] = $status_id;
+        $data['selected_job_id'] = $job_id;
+
+        if (!empty($job_id) && $job_id != 0) {
+            $data['applications'] = $this->JobApplications_model->get_by_status_and_job($status_id, $job_id);
+        } else {
+            $data['applications'] = $this->JobApplications_model->get_applications_by_status($status_id);
+        }
+
+
         $this->load->view('admin/applications_list', $data);
     }
 

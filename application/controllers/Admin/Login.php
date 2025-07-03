@@ -304,8 +304,8 @@ class Login extends MY_Controller
         $this->form_validation->set_rules('username', 'Username', 'required|callback_check_username[' . $id . ']');
         $this->form_validation->set_rules('email', 'Email', 'required|valid_email|callback_check_email[' . $id . ']');
         // $this->form_validation->set_rules('password', 'Password', 'required|min_length[6]');
-        $this->form_validation->set_rules('user_type', 'User Type', 'required|in_list[1,2,3]');
-        $this->form_validation->set_rules('status', 'Status', 'required|in_list[1,2,3]');
+        // $this->form_validation->set_rules('user_type', 'User Type', 'required|in_list[1,2,3]');
+        // $this->form_validation->set_rules('status', 'Status', 'required|in_list[1,2,3]');
         $this->form_validation->set_rules('mobile_number', 'Mobile Number', 'required');
 
         if ($this->form_validation->run() === TRUE) {
@@ -333,8 +333,8 @@ class Login extends MY_Controller
                 'username'      => $this->input->post('username'),
                 // 'email'         => $this->input->post('email'),
                 'mobile_number' => $this->input->post('mobile_number'),
-                'user_type'     => $this->input->post('user_type'),
-                'status'        => $this->input->post('status'),
+                // 'user_type'     => $this->input->post('user_type'),
+                // 'status'        => $this->input->post('status'),
                 'image'         => $image,
                 'updated_at'    => date('Y-m-d H:i:s')
             ];

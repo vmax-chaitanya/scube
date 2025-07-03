@@ -17,4 +17,12 @@ class JobApplications_model extends CI_Model
     {
         return $this->db->where('id', $id)->update($this->table, ['status' => $status]);
     }
+    public function get_by_status_and_job($status, $job_id)
+    {
+        return $this->db->where('status', $status)
+            ->where('job_id', $job_id)
+            ->order_by('created_at', 'DESC')
+            ->get($this->table)
+            ->result();
+    }
 }

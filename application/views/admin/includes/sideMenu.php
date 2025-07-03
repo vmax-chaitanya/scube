@@ -92,6 +92,8 @@
 
                                   <?php if ($user_type == 1  || $user_type == 2 || $user_type == 3) { ?>
 
+                                      <?php $current_job_id = isset($selected_job_id) ? $selected_job_id : null; ?>
+
                                       <li class="nav-item">
                                           <a
                                               class="nav-link"
@@ -105,22 +107,26 @@
                                           <div class="collapse show" id="sidebarAnalytics">
                                               <ul class="nav flex-column">
                                                   <li class="nav-item">
-                                                      <a href="<?php echo base_url(); ?>admin/jobapplications/1" class="nav-link">Pending</a>
-                                                  </li>
-
-                                                  <li class="nav-item">
-                                                      <a href="<?php echo base_url(); ?>admin/jobapplications/2" class="nav-link">Reviewed</a>
+                                                      <a href="<?= base_url('admin/jobapplications/1/job/' . ($current_job_id ?? 0)) ?>" class="nav-link">
+                                                          New
+                                                      </a>
                                                   </li>
                                                   <li class="nav-item">
-                                                      <a href="<?php echo base_url(); ?>admin/jobapplications/3" class="nav-link">Selected</a>
+                                                      <a href="<?= base_url('admin/jobapplications/2/job/' . ($current_job_id ?? 0)) ?>" class="nav-link">
+                                                          Reviewed
+                                                      </a>
                                                   </li>
-
                                                   <li class="nav-item">
-                                                      <a href="<?php echo base_url(); ?>admin/jobapplications/4" class="nav-link">Rejected</a>
+                                                      <a href="<?= base_url('admin/jobapplications/3/job/' . ($current_job_id ?? 0)) ?>" class="nav-link">
+                                                          Selected
+                                                      </a>
                                                   </li>
-
+                                                  <li class="nav-item">
+                                                      <a href="<?= base_url('admin/jobapplications/4/job/' . ($current_job_id ?? 0)) ?>" class="nav-link">
+                                                          Rejected
+                                                      </a>
+                                                  </li>
                                               </ul>
-
                                           </div>
                                       </li>
                                   <?php } ?>

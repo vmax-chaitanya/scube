@@ -10,7 +10,12 @@ class JobsModel extends CI_Model
 
     public function get_all_jobs()
     {
-        return $this->db->get($this->table)->result();
+        // return $this->db->get($this->table)->result();
+        return $this->db
+            ->where('status !=', 'Delete')
+            ->order_by('created_at', 'DESC')
+            ->get($this->table)
+            ->result();
     }
 
     public function get_job($id)
@@ -28,10 +33,17 @@ class JobsModel extends CI_Model
         return $this->db->where('id', $id)->update($this->table, $data);
     }
 
-    public function delete_job($id)
+    // public function delete_job($id)
+    // {
+    //     return $this->db->delete($this->table, ['id' => $id]);
+    // }
+    public function mark_as_deleted($id)
     {
-        return $this->db->delete($this->table, ['id' => $id]);
+        return $this->db
+            ->where('id', $id)
+            ->update($this->table, ['status' => 'Delete']);
     }
+
     public function is_slug_unique($slug, $exclude_id = null)
     {
         $this->db->where('slug', $slug);

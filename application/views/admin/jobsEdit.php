@@ -92,8 +92,11 @@
                         <label class="form-label">Job Type <span class="text-danger">*</span></label>
                         <select name="job_type" class="form-select" required>
                           <option value="">Select</option>
+                          <!-- <option value="Permanent">Permanent</option>
+                          <option value="Contract">Contract</option>
+                          <option value="FTC">FTC</option> -->
                           <?php
-                          $types = ['Full-time', 'Part-time', 'Internship', 'Freelance', 'Remote', 'Other'];
+                          $types = ['Permanent', 'Contract', 'FTC'];
                           foreach ($types as $type) {
                             $selected = set_value('job_type', $job->job_type) == $type ? 'selected' : '';
                             echo "<option value=\"$type\" $selected>$type</option>";
@@ -148,7 +151,7 @@
                           <option value="">Select</option>
                           <option value="Draft" <?= set_value('status', $job->status) == 'Draft' ? 'selected' : '' ?>>Draft</option>
                           <option value="Active" <?= set_value('status', $job->status) == 'Active' ? 'selected' : '' ?>>Active</option>
-                          <option value="Closed" <?= set_value('status', $job->status) == 'Closed' ? 'selected' : '' ?>>Closed</option>
+                          <!-- <option value="Closed" <?= set_value('status', $job->status) == 'Closed' ? 'selected' : '' ?>>Closed</option> -->
                         </select>
                         <small class="text-danger"><?= form_error('status'); ?></small>
                       </div>

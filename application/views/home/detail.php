@@ -180,14 +180,14 @@
                     <label class="form-label">Visa Expiry</label>
                     <input type="date" name="visa_expiry" class="form-control" value="<?= set_value('visa_expiry') ?>" />
                   </div>
-                  <div class="col-md-6">
+                  <!-- <div class="col-md-6">
                     <label class="form-label">Job Type</label>
                     <select name="job_type" class="form-select" id="job_type">
                       <option value="Permanent" <?= set_select('job_type', 'Permanent') ?>>Permanent</option>
                       <option value="Contract" <?= set_select('job_type', 'Contract') ?>>Contract</option>
                       <option value="FTC" <?= set_select('job_type', 'FTC') ?>>FTC</option>
                     </select>
-                  </div>
+                  </div> -->
 
                   <div class="col-md-6" id="salary_group">
                     <label class="form-label">Salary</label>
