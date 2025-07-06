@@ -10,12 +10,17 @@ class JobsModel extends CI_Model
 
     public function get_all_jobs()
     {
-        // return $this->db->get($this->table)->result();
         return $this->db
             ->where('status !=', 'Delete')
+            ->where('application_deadline >=', date('Y-m-d')) // today's date
             ->order_by('created_at', 'DESC')
             ->get($this->table)
             ->result();
+    }
+
+    public function job_unique_exists($jobUnique)
+    {
+        return $this->db->where('jobUnique', $jobUnique)->count_all_results($this->table) > 0;
     }
 
     public function get_job($id)

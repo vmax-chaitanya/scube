@@ -115,6 +115,17 @@
                           <option value="FTC">FTC</option>
                         </select>
                       </div>
+                      <!-- //'On-Site','Hybrid','Remote' -->
+                      <div class="mb-3">
+                        <label for="work_type" class="form-label">Work Type</label>
+                        <select class="form-select" name="work_type" id="work_type" required>
+                          <option value="">Select</option>
+                          <option value="On-Site">On-Site</option>
+                          <option value="Hybrid">Hybrid</option>
+                          <option value="Remote">Remote</option>
+
+                        </select>
+                      </div>
 
                       <!-- Salary Range -->
                       <div class="mb-3 row">

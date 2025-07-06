@@ -32,8 +32,8 @@ class JobApplication extends CI_Controller
         $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
         $this->form_validation->set_rules('phone', 'Phone Number', 'required|max_length[20]');
         $this->form_validation->set_rules('current_location', 'Current Location', 'required');
-        $this->form_validation->set_rules('work_location_id', 'Work Location', 'required|integer');
-        $this->form_validation->set_rules('job_type', 'Job Type', 'required');
+        // $this->form_validation->set_rules('work_location_id', 'Work Location', 'required|integer');
+        // $this->form_validation->set_rules('job_type', 'Job Type', 'required');
         $this->form_validation->set_rules('authorized', 'Authorization', 'required|in_list[0,1]');
         $this->form_validation->set_rules('right_to_work', 'Right to Work', 'required|in_list[0,1]');
         $this->form_validation->set_rules('sponsorship', 'Sponsorship Need', 'required|in_list[0,1]');
@@ -67,6 +67,11 @@ class JobApplication extends CI_Controller
                     $cv_path = '/assets/uploads/cv/' . $data_upload['file_name'];
                 }
             }
+            if ($this->input->post('authorized') == '0' || $this->input->post('right_to_work') == '0') {
+                $status  = "4";
+            } else {
+                $status = "1";
+            }
 
             $form_data = [
                 'first_name'        => $this->input->post('first_name'),
@@ -74,7 +79,7 @@ class JobApplication extends CI_Controller
                 'email'             => $this->input->post('email'),
                 'phone'             => $this->input->post('phone'),
                 'current_location'          => $this->input->post('current_location'),
-                'work_location_id'     => $this->input->post('work_location_id'),
+                // 'work_location_id'     => $this->input->post('work_location_id'),
                 'resume'                => $cv_path,
                 'authorized_work'        => $this->input->post('authorized'),
                 'right_to_work'     => $this->input->post('right_to_work'),
@@ -86,7 +91,7 @@ class JobApplication extends CI_Controller
                 'rate'              => $this->input->post('rate'),
                 'source'     => $this->input->post('hear_about_us'),
                 'ir35_type'     => $this->input->post('ir35_type'),
-                'status'            => 1,
+                'status'            =>  $status,
                 'created_at'        => date('Y-m-d H:i:s'),
                 'job_id'            => $job->id // assuming you store job_id with applications
             ];

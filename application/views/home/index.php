@@ -15,30 +15,8 @@
 
 <body>
 
-  <!-- Navbar -->
-  <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-primary"> -->
-  <nav class="navbar navbar-expand-lg navbar-dark primary-bg sticky-top shadow-sm">
+  <?php include('includes/header.php'); ?>
 
-    <div class="container">
-      <a class="navbar-brand" href="#">
-        <img src="<?= base_url(); ?>assets/home/images/logo.png" alt="Logo" class=" logo-img">
-      </a>
-
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link active home-link" href="https://scubedimensions.com/">
-              <i class="bi bi-house home-icon"></i> Home
-            </a>
-          </li>
-        </ul>
-
-      </div>
-    </div>
-  </nav>
 
   <!-- Job Cards Section -->
   <!-- Job Search & Cards Section -->

@@ -97,7 +97,7 @@
                 <?php endif; ?>
                 <div class="table-responsive">
 
-                  <form method="get" class="mb-3" id="jobFilterForm">
+                  <!-- <form method="get" class="mb-3" id="jobFilterForm">
                     <div class="row">
                       <div class="col-md-4">
                         <select name="job_id" id="jobFilterSelect" class="form-select" onchange="filterByJob()">
@@ -110,7 +110,7 @@
                         </select>
                       </div>
                     </div>
-                  </form>
+                  </form> -->
 
                   <table class="table datatable" id="datatable_1">
                     <!-- <table class="table table-bordered table-striped datatable" id="datatable_applications"> -->
@@ -170,6 +170,7 @@
                             <td>
                               <a href="<?= base_url('admin/jobapplications/view/' . $app->id) ?>" class="btn btn-sm btn-outline-info">View</a>
                               <a href="<?= base_url($app->resume) ?>" target="_blank" class="btn btn-sm btn-outline-secondary">CV</a>
+                              <a href="<?= base_url('admin/jobapplications/delete/' . $app->id) ?>" class="btn btn-sm btn-outline-danger">Delete</a>
                             </td>
                           </tr>
                         <?php endforeach; ?>

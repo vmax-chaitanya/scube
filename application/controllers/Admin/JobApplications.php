@@ -32,6 +32,22 @@ class JobApplications extends CI_Controller
 
         $this->load->view('admin/applications_list', $data);
     }
+    public function allData()
+    {
+
+        // $data['jobs'] = $this->jobsModel->get_all_jobs();
+        // print_r($data['jobs']);
+        // exit;
+        // $data['status'] = $status_id;
+        // $data['selected_job_id'] = $job_id;
+
+
+        $data['applications'] = $this->JobApplications_model->all();
+
+
+
+        $this->load->view('admin/applications_list_all', $data);
+    }
 
     public function view($id)
     {
@@ -42,15 +58,41 @@ class JobApplications extends CI_Controller
         $this->load->view('admin/application_view', $data);
     }
 
-    public function update_status($id, $new_status)
+    // public function update_status($id, $new_status)
+    // {
+    //     $allowed_statuses = [1, 2, 3, 4]; // pending, review, selected, rejected
+    //     if (!in_array($new_status, $allowed_statuses)) {
+    //         show_error('Invalid status update');
+    //     }
+
+    //     $this->JobApplications_model->update_application_status($id, $new_status);
+    //     $this->session->set_flashdata('success', 'Application status updated successfully.');
+    //     redirect('admin/jobapplications/' . $new_status);
+    // }
+
+    public function update_status($application_id, $new_status, $job_id = 0)
     {
-        $allowed_statuses = [1, 2, 3, 4]; // pending, review, selected, rejected
+        $allowed_statuses = [1, 2, 3, 4]; // Valid statuses
+
         if (!in_array($new_status, $allowed_statuses)) {
             show_error('Invalid status update');
         }
 
-        $this->JobApplications_model->update_application_status($id, $new_status);
+        $this->JobApplications_model->update_application_status($application_id, $new_status);
         $this->session->set_flashdata('success', 'Application status updated successfully.');
-        redirect('admin/jobapplications/' . $new_status);
+
+        // Redirect based on status and job ID
+        if ($job_id) {
+            redirect('admin/jobapplications/' . $new_status . '/job/' . $job_id);
+        } else {
+            redirect('admin/jobapplications/' . $new_status);
+        }
+    }
+
+    public function delete($id)
+    {
+        $this->JobApplications_model->delete_application($id);
+        $this->session->set_flashdata('success', 'Application deleted successfully.');
+        redirect('admin/jobapplications/allApplications');
     }
 }

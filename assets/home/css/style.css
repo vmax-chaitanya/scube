@@ -1,9 +1,10 @@
+/* Root Colors */
 :root {
   --primary-color: #0876bc;
   --accent-color: #30af4b;
 }
 
-/* General Styling */
+/* General */
 body {
   font-family: "Segoe UI", sans-serif;
   background-color: #f4f6f9;
@@ -12,27 +13,82 @@ body {
   padding: 0;
 }
 
-/* Navbar */
-.navbar {
-  background-color: var(--primary-color) !important;
+/* Navbar Header */
+.custom-header {
+  background-color: #fff;
+  padding: 20px;
+  border-bottom: 1px solid #e5e5e5;
+  margin: 25px 60px;
+  border-radius: 6px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  z-index: 1030;
 }
-/* .navbar-brand img {
-  height: 32px;
-  border-radius: 50%;
-} */
 
 .logo-img {
-  height: 50px; /* or whatever works for your navbar */
-  width: auto;
-  background-color: #fff; /* white background */
+  height: 50px;
+  background-color: #fff;
   padding: 6px;
-  border-radius: 4px; /* optional */
+  border-radius: 4px;
   object-fit: contain;
 }
 
-.form-title {
+.navbar .nav-link {
+  font-weight: 700;
+  color: var(--primary-color);
+  padding: 10px 15px;
+  transition: all 0.3s ease;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+  color: var(--accent-color);
+  border-bottom: 2px solid var(--accent-color);
+}
+
+.call-btn {
+  background-color: #7ef7a2;
+  border: none;
+  font-weight: 600;
+  color: var(--primary-color);
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.call-btn:hover {
+  background-color: #6ae292;
+  color: #065d96;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+  margin-top: 0;
+}
+
+.dropdown-menu {
+  border-radius: 8px;
+  padding: 10px 0;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  min-width: 220px;
+  border: 1px solid #eaeaea;
+}
+
+.dropdown-menu .dropdown-item {
+  padding: 10px 20px;
+  font-weight: 500;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+.dropdown-menu .dropdown-item:hover {
+  background-color: #f5f5f5;
   color: var(--primary-color);
 }
+
+.navbar-nav > .nav-item {
+  position: relative;
+}
+
 /* Section Heading */
 section .text-center h2 {
   font-size: 2.2rem;
@@ -46,7 +102,7 @@ section .text-center p {
   margin: 0 auto;
 }
 
-/* Job Card Container */
+/* Job Cards */
 .job-card {
   border: none;
   border-radius: 16px;
@@ -63,7 +119,6 @@ section .text-center p {
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
 }
 
-/* Image Fix */
 .job-card img {
   width: 100%;
   height: 200px;
@@ -77,7 +132,6 @@ section .text-center p {
   transform: scale(1.05);
 }
 
-/* Card Body */
 .card-body {
   padding: 20px;
   flex-grow: 1;
@@ -89,7 +143,6 @@ section .text-center p {
   margin-bottom: 15px;
 }
 
-/* Info Rows */
 .card-text {
   font-size: 0.95rem;
   margin-bottom: 10px;
@@ -104,7 +157,6 @@ section .text-center p {
   margin-right: 8px;
 }
 
-/* Apply Button */
 .apply-btn {
   background-color: var(--accent-color);
   color: #fff;
@@ -122,7 +174,6 @@ section .text-center p {
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
 }
 
-/* Bookmark Icon */
 .bookmark-btn {
   position: absolute;
   top: 15px;
@@ -134,12 +185,12 @@ section .text-center p {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   transition: all 0.2s ease;
 }
+
 .bookmark-btn:hover {
   background-color: var(--primary-color);
   color: #fff;
 }
 
-/* Load More Button */
 .btn-primary {
   background-color: var(--primary-color);
   border: none;
@@ -148,29 +199,9 @@ section .text-center p {
   background-color: #065d96;
 }
 
-/* Badges */
-.badge {
-  font-size: 0.75rem;
-  padding: 6px 10px;
-  border-radius: 6px;
-}
-
-/* Modal Fix */
-.modal-content {
-  border-radius: 16px;
-  padding: 20px;
-}
-.modal-body p {
-  margin-bottom: 0.75rem;
-}
-/* Banner Section with Gradient Background */
+/* Banner */
 .breadcrumb-banner {
   position: relative;
-  /* background: linear-gradient(
-    to right,
-    var(--primary-color),
-    var(--accent-color)
-  ); */
   background: linear-gradient(
     to right,
     var(--primary-color) 0%,
@@ -183,17 +214,26 @@ section .text-center p {
   align-items: center;
 }
 
-.breadcrumb-overlay {
-  display: none; /* No need for overlay now */
-}
-
 .breadcrumb-banner .container {
   position: relative;
   z-index: 2;
+  padding: 20px 0;
 }
 
-.breadcrumb {
+.breadcrumb-banner h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 10px;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.breadcrumb-banner .breadcrumb {
   background: transparent;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 500;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   padding-left: 0;
 }
 
@@ -203,36 +243,29 @@ section .text-center p {
   text-decoration: underline;
 }
 
-/* Job Details Box */
-.job-details {
-  background-color: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+/* Form */
+.form-title {
+  color: var(--primary-color);
 }
 
-/* Form Label */
 .form-label {
   font-weight: 500;
 }
 
-/* Responsive Tweaks */
-@media (max-width: 767px) {
-  .breadcrumb-banner {
-    min-height: 160px;
-  }
-  .breadcrumb-banner h1 {
-    font-size: 1.5rem;
-  }
+/* Sticky Form */
+.sticky-form-wrapper {
+  position: sticky;
+  top: 100px;
 }
 
-@media (max-width: 576px) {
-  .row.g-3 > [class*="col-"] {
-    flex: 0 0 100%;
-    max-width: 100%;
-  }
+.sticky-form {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 100px;
+  z-index: 2;
 }
 
-/* Footer Styling */
+/* Footer */
 .footer {
   background-color: var(--primary-color);
   color: #fff;
@@ -261,6 +294,13 @@ section .text-center p {
   border-color: rgba(255, 255, 255, 0.2) !important;
 }
 
+/* Job Details */
+.job-details {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
 .job-details p {
   font-size: 1rem;
   margin-bottom: 0.75rem;
@@ -271,44 +311,20 @@ section .text-center p {
   vertical-align: middle;
 }
 
-.breadcrumb-banner h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #fff;
-  margin-bottom: 10px;
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-}
-.breadcrumb-banner .breadcrumb {
-  color: #ffffff;
-  font-size: 1rem;
-  font-weight: 500;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-}
-.breadcrumb-banner .container {
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
-
-/* .job-icon,
-.job-title {
-  color: var(--accent-color);
-} */
-
 .job-icon {
   color: var(--primary-color);
   margin-right: 0.5rem;
 }
 
 .job-title-wrapper {
-  max-width: 600px; /* You can adjust this value */
+  max-width: 600px;
   width: 100%;
 }
 
 .job-title {
-  font-size: 1rem; /* adjust as needed */
-  /* font-weight: bold; */
-  color: var(--primary-color); /* or use #30af4b directly */
-  letter-spacing: -1px; /* tighten spacing between letters */
+  font-size: 1rem;
+  color: var(--primary-color);
+  letter-spacing: -1px;
   margin-bottom: 1rem;
 }
 
@@ -332,37 +348,40 @@ section .text-center p {
   font-size: 1.1rem;
 }
 
-.sticky-form-wrapper {
-  position: sticky;
-  top: 100px;
-}
-/* Add this to your custom CSS file */
-.sticky-form {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 100px; /* Adjust depending on your header */
-  z-index: 2;
-}
-
-/* ///icon home */
+/* Home Icon */
 .home-link {
   display: flex;
   align-items: center;
-  gap: 6px; /* space between icon and text */
+  gap: 6px;
   transition: color 0.3s, background-color 0.3s;
 }
 
 .home-icon {
-  font-size: 1.3rem; /* adjust icon size */
+  font-size: 1.3rem;
   font-weight: 600;
-  /* color: #0d6efd; Bootstrap primary color */
 }
 
-/* Hover effect */
 .home-link:hover {
   color: #0a58ca !important;
   background-color: #f8f9fa;
   border-radius: 5px;
   padding: 5px 10px;
   text-decoration: none;
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+  .breadcrumb-banner {
+    min-height: 160px;
+  }
+  .breadcrumb-banner h1 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .row.g-3 > [class*="col-"] {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
 }

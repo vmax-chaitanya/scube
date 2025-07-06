@@ -21,6 +21,17 @@ class JobsController extends CI_Controller
     {
         $this->load->view('admin/jobsCreate');
     }
+    private function generate_unique_job_id($length = 8)
+    {
+        // $this->load->model('Jobs_model');
+
+        do {
+            $random_id = strtoupper(bin2hex(random_bytes($length / 2))); // e.g., "A1B2C3D4"
+            $exists = $this->jobsModel->job_unique_exists($random_id);  // Check if ID already exists
+        } while ($exists);
+
+        return $random_id;
+    }
 
     public function store()
     {
@@ -52,6 +63,7 @@ class JobsController extends CI_Controller
 
             $data = $this->_get_post_data();
             $data['image'] = $image_name; // Add image path
+            $data['jobUnique'] = $this->generate_unique_job_id();
             $this->jobsModel->create_job($data);
 
             $this->session->set_flashdata('success', 'Job created successfully.');

@@ -88,13 +88,28 @@
                       </div>
 
                       <!-- Job Type -->
+
+
+                      <!-- Department -->
+                      <div class="mb-3">
+                        <label class="form-label">Department</label>
+                        <input type="text" class="form-control" name="department" value="<?= set_value('department', $job->department); ?>">
+                        <small class="text-danger"><?= form_error('department'); ?></small>
+                      </div>
+                      <div class="mb-3">
+                        <label class="form-label">Experience Required</label>
+                        <input type="text" class="form-control" name="experience_required" value="<?= set_value('experience_required', $job->experience_required); ?>">
+                        <small class="text-danger"><?= form_error('experience_required'); ?></small>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                      <!-- Experience Required -->
                       <div class="mb-3">
                         <label class="form-label">Job Type <span class="text-danger">*</span></label>
                         <select name="job_type" class="form-select" required>
                           <option value="">Select</option>
-                          <!-- <option value="Permanent">Permanent</option>
-                          <option value="Contract">Contract</option>
-                          <option value="FTC">FTC</option> -->
+
                           <?php
                           $types = ['Permanent', 'Contract', 'FTC'];
                           foreach ($types as $type) {
@@ -105,21 +120,20 @@
                         </select>
                         <small class="text-danger"><?= form_error('job_type'); ?></small>
                       </div>
-
-                      <!-- Department -->
                       <div class="mb-3">
-                        <label class="form-label">Department</label>
-                        <input type="text" class="form-control" name="department" value="<?= set_value('department', $job->department); ?>">
-                        <small class="text-danger"><?= form_error('department'); ?></small>
-                      </div>
-                    </div>
+                        <label class="form-label">Work Type <span class="text-danger">*</span></label>
+                        <select name="work_type" class="form-select" required>
+                          <option value="">Select</option>
 
-                    <div class="col-lg-6">
-                      <!-- Experience Required -->
-                      <div class="mb-3">
-                        <label class="form-label">Experience Required</label>
-                        <input type="text" class="form-control" name="experience_required" value="<?= set_value('experience_required', $job->experience_required); ?>">
-                        <small class="text-danger"><?= form_error('experience_required'); ?></small>
+                          <?php
+                          $types = ['On-Site', 'Hybrid', 'Remote'];
+                          foreach ($types as $type) {
+                            $selected = set_value('job_type', $job->work_type) == $type ? 'selected' : '';
+                            echo "<option value=\"$type\" $selected>$type</option>";
+                          }
+                          ?>
+                        </select>
+                        <small class="text-danger"><?= form_error('work_type'); ?></small>
                       </div>
 
 

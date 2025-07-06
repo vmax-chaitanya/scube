@@ -130,6 +130,11 @@
                                           </div>
                                       </li>
                                   <?php } ?>
+                                  <?php if ($user_type == 1) { ?>
+                                      <li class="nav-item">
+                                          <a class="nav-link" href="<?php echo base_url(); ?>admin/jobapplications/allApplications/">All Job Applications</a>
+                                      </li>
+                                  <?php } ?>
                                   <!-- <li class="nav-item">
                                       <a
                                           class="nav-link"

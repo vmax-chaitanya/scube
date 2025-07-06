@@ -15,29 +15,8 @@
 
 <body>
 
-  <!-- Header Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark primary-bg sticky-top shadow-sm">
+  <?php include('includes/header.php'); ?>
 
-    <div class="container">
-      <a class="navbar-brand" href="#">
-        <img src="<?= base_url(); ?>assets/home/images/logo.png" alt="Logo" class=" logo-img">
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link active home-link" href="https://scubedimensions.com/">
-              <i class="bi bi-house home-icon"></i> Home
-            </a>
-          </li>
-        </ul>
-
-
-      </div>
-    </div>
-  </nav>
 
   <!-- Banner with Breadcrumb and Background Image -->
   <section class="breadcrumb-banner">
@@ -72,11 +51,14 @@
 
             <!-- Tags -->
             <div class="mb-3">
+              <span class="badge bg-light text-primary border me-1"><?= htmlspecialchars($job->work_type) ?></span>
+
               <span class="badge bg-light text-primary border me-1"><?= htmlspecialchars($job->job_type) ?></span>
               <?php if (strtolower($job->job_type) === 'remote') : ?>
                 <span class="badge bg-light text-primary border">Remote</span>
               <?php endif; ?>
             </div>
+
 
             <div class="row">
               <!-- Left Column -->
@@ -159,7 +141,7 @@
                     <label class="form-label">Current Location</label>
                     <input type="text" name="current_location" class="form-control" value="<?= set_value('current_location') ?>" />
                   </div>
-                  <div class="col-md-6">
+                  <!-- <div class="col-md-6">
                     <label class="form-label">Preferred Work Location</label>
                     <select name="work_location_id" class="form-select">
                       <option value="">Select</option>
@@ -167,7 +149,7 @@
                       <option value="2" <?= set_select('work_location_id', '2') ?>>Hyderabad</option>
                       <option value="3" <?= set_select('work_location_id', '3') ?>>Remote</option>
                     </select>
-                  </div>
+                  </div> -->
                   <div class="col-md-6">
                     <label class="form-label">Resume *</label>
                     <input type="file" name="resume" class="form-control" required accept=".pdf, .doc, .docx" />
@@ -195,7 +177,7 @@
                   </div>
 
                   <div class="col-md-6" id="rate_group">
-                    <label class="form-label">Rate (Hourly)</label>
+                    <label class="form-label">Rate (Day)</label>
                     <input type="number" name="rate" step="0.01" class="form-control" value="<?= set_value('rate') ?>" />
                   </div>
                   <div class="col-md-6">
@@ -230,7 +212,7 @@
 
 
                   <div class="col-md-6">
-                    <label class="form-label">IR35 Type</label>
+                    <label class="form-label">IR35 Type (if applicable)</label>
                     <select name="ir35_type" class="form-select">
                       <option value="">Select</option>
                       <option value="Inside IR35" <?= set_select('ir35_type', 'Inside IR35') ?>>Inside IR35</option>
@@ -306,6 +288,13 @@
       $('#job_type').on('change', function() {
         toggleFields(); // Call on change
       });
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const dateInput = document.querySelector('input[name="visa_expiry"]');
+      const today = new Date().toISOString().split('T')[0]; // yyyy-mm-dd
+      dateInput.setAttribute('min', today); // sets min date as today
     });
   </script>
 

@@ -41,7 +41,7 @@
               <div class="card-header">
                 <div class="row align-items-center">
                   <div class="col">
-                    <h4 class="card-title">Job Application - <?= $application->first_name ?> <?= $application->last_name ?></h4>
+                    <h4 class="card-title">Job Application - [ <?= $application->job_title ?> ] </h4>
                   </div>
                   <div class="col-auto">
                     <a href="<?= base_url($application->resume) ?>" target="_blank" class="btn btn-sm btn-primary">
@@ -63,8 +63,9 @@
                       <li class="mt-2"><i class="las la-envelope me-2 text-secondary fs-22"></i><b>Email</b>: <?= $application->email ?></li>
                       <li class="mt-2"><i class="las la-phone me-2 text-secondary fs-22"></i><b>Phone</b>: <?= $application->phone ?></li>
                       <li class="mt-2"><i class="las la-map-marker-alt me-2 text-secondary fs-22"></i><b>Current Location</b>: <?= $application->current_location ?></li>
-                      <li class="mt-2"><i class="las la-map me-2 text-secondary fs-22"></i><b>Work Location</b>: <?= $application->work_location_id ?></li>
+                      <li class="mt-2"><i class="las la-map me-2 text-secondary fs-22"></i><b>Work Location</b>: <?= $application->work_type ?></li>
                       <li class="mt-2"><i class="las la-passport me-2 text-secondary fs-22"></i><b>Authorized to Work</b>: <?= $application->authorized_work == 1 ? 'Yes' : 'No' ?></li>
+                      <li class="mt-2"><i class="las la-passport me-2 text-secondary fs-22"></i><b>IR35_type</b>: ( <?= $application->ir35_type  ? $application->ir35_type  : '--' ?>)</li>
                     </ul>
                   </div>
 
@@ -79,7 +80,7 @@
                       <?php if ($application->job_type == 'permanent'): ?>
                         <li class="mt-2"><i class="las la-money-bill me-2 text-secondary fs-22"></i><b>Salary</b>: ₹<?= $application->salary ?></li>
                       <?php else: ?>
-                        <li class="mt-2"><i class="las la-money-check me-2 text-secondary fs-22"></i><b>Rate</b>: ₹<?= $application->rate ?> (<?= $application->ir35_type ?>)</li>
+                        <li class="mt-2"><i class="las la-money-check me-2 text-secondary fs-22"></i><b>Rate</b>: ₹<?= $application->rate ?> </li>
                       <?php endif; ?>
                     </ul>
                   </div>
@@ -88,15 +89,18 @@
 
                 <div class="mt-4 text-center">
                   <?php if ($application->status == 1): ?>
-                    <a href="<?= base_url('admin/jobapplications/update-status/' . $application->id . '/2') ?>" class="btn btn-warning" onclick="return confirm('Are you sure you want to update the status?')">Mark as Review</a>
-                    <a href="<?= base_url('admin/jobapplications/update-status/' . $application->id . '/3') ?>" class="btn btn-success" onclick="return confirm('Are you sure you want to update the status?')">Select</a>
-                    <a href="<?= base_url('admin/jobapplications/update-status/' . $application->id . '/4') ?>" class="btn btn-danger" onclick="return confirm('Are you sure you want to update the status?')">Reject</a>
+                    <a href="<?= base_url('admin/jobapplications/update-status/' . $application->id . '/2/' . $application->job_id) ?>" class="btn btn-warning" onclick="return confirm('Are you sure you want to update the status?')">Mark as Review</a>
+                    <a href="<?= base_url('admin/jobapplications/update-status/' . $application->id . '/3/' . $application->job_id) ?>" class="btn btn-success" onclick="return confirm('Are you sure you want to update the status?')">Select</a>
+                    <a href="<?= base_url('admin/jobapplications/update-status/' . $application->id . '/4/' . $application->job_id) ?>" class="btn btn-danger" onclick="return confirm('Are you sure you want to update the status?')">Reject</a>
+
                   <?php elseif ($application->status == 2): ?>
-                    <a href="<?= base_url('admin/jobapplications/update-status/' . $application->id . '/3') ?>" class="btn btn-success" onclick="return confirm('Are you sure you want to update the status?')">Select</a>
-                    <a href="<?= base_url('admin/jobapplications/update-status/' . $application->id . '/4') ?>" class="btn btn-danger" onclick="return confirm('Are you sure you want to update the status?')">Reject</a>
+                    <a href="<?= base_url('admin/jobapplications/update-status/' . $application->id . '/3/' . $application->job_id) ?>" class="btn btn-success" onclick="return confirm('Are you sure you want to update the status?')">Select</a>
+                    <a href="<?= base_url('admin/jobapplications/update-status/' . $application->id . '/4/' . $application->job_id) ?>" class="btn btn-danger" onclick="return confirm('Are you sure you want to update the status?')">Reject</a>
+
                   <?php elseif ($application->status == 3): ?>
-                    <a href="<?= base_url('admin/jobapplications/update-status/' . $application->id . '/4') ?>" class="btn btn-danger" onclick="return confirm('Are you sure you want to update the status?')">Reject</a>
+                    <a href="<?= base_url('admin/jobapplications/update-status/' . $application->id . '/4/' . $application->job_id) ?>" class="btn btn-danger" onclick="return confirm('Are you sure you want to update the status?')">Reject</a>
                   <?php endif; ?>
+
                 </div>
               </div>
             </div>
