@@ -9,12 +9,12 @@
                              <script>
                                  document.write(new Date().getFullYear());
                              </script>
-                             Rizz
+                             SCUBE
                              <span
                                  class="text-muted d-none d-sm-inline-block float-end">
-                                 Crafted with
-                                 <i class="iconoir-heart text-danger"></i>
-                                 by Mannatthemes</span>
+                                 Design & Developed
+
+                                 by DigitalWin <i class="iconoir-heart text-danger"></i></span>
                          </p>
                      </div>
                  </div>

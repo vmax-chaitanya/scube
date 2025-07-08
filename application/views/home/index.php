@@ -67,6 +67,8 @@
 
                   <!-- Tags -->
                   <div class="mb-3">
+                    <span class="badge bg-light text-primary border me-1"><?= htmlspecialchars($job->work_type) ?></span>
+
                     <span class="badge bg-light text-primary border me-1"><?= htmlspecialchars($job->job_type) ?></span>
                     <?php if (strtolower($job->job_type) === 'remote') : ?>
                       <span class="badge bg-light text-primary border">Remote</span>
@@ -141,15 +143,15 @@
       <div class="row align-items-center justify-content-between">
         <div class="col-md-6 mb-3 mb-md-0">
           <h6>Contact Us</h6>
-          <p><i class="bi bi-envelope me-2"></i>contact@example.com</p>
-          <p><i class="bi bi-telephone me-2"></i>+91 98765 43210</p>
+          <p><i class="bi bi-envelope me-2"></i>info@scubedimensions.com</p>
+          <p><i class="bi bi-telephone me-2"></i>+44-20 7093 3776</p>
         </div>
         <div class="col-md-6 text-md-end">
           <h6>Follow Us</h6>
-          <a href="#"><i class="bi bi-facebook me-3"></i></a>
-          <a href="#"><i class="bi bi-twitter me-3"></i></a>
-          <a href="#"><i class="bi bi-linkedin me-3"></i></a>
-          <a href="#"><i class="bi bi-instagram"></i></a>
+          <a href="https://www.facebook.com/scubedimensions"><i class="bi bi-facebook me-3"></i></a>
+          <!-- <a href="#"><i class="bi bi-twitter me-3"></i></a> -->
+          <a href="https://www.linkedin.com/company/scube-dimensions/"><i class="bi bi-linkedin me-3"></i></a>
+          <!-- <a href="#"><i class="bi bi-instagram"></i></a> -->
         </div>
       </div>
       <hr class="border-light mt-4" />

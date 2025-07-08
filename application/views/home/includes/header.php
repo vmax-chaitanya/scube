@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg sticky-top shadow-sm custom-header">
     <div class="container">
         <!-- Logo -->
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="https://scubedimensions.com/">
             <img src="<?= base_url(); ?>assets/home/images/logo.png" alt="Logo" class="logo-img">
         </a>
 
@@ -14,10 +14,10 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto align-items-lg-center">
                 <li class="nav-item px-2">
-                    <a class="nav-link active" href="#">HOME</a>
+                    <a class="nav-link active" href="https://scubedimensions.com/">HOME</a>
                 </li>
                 <li class="nav-item px-2">
-                    <a class="nav-link" href="#">ABOUT US</a>
+                    <a class="nav-link" href="https://scubedimensions.com/about-us/">ABOUT US</a>
                 </li>
 
                 <!-- Dropdown Menu -->
@@ -26,28 +26,28 @@
                         CONSULTING SERVICES
                     </a>
                     <ul class="dropdown-menu shadow-sm" aria-labelledby="servicesDropdown">
-                        <li><a class="dropdown-item" href="#">Cloud Computing</a></li>
-                        <li><a class="dropdown-item" href="#">Big Data</a></li>
-                        <li><a class="dropdown-item" href="#">IT Consulting</a></li>
-                        <li><a class="dropdown-item" href="#">SAP Consulting</a></li>
-                        <li><a class="dropdown-item" href="#">Digital Marketing</a></li>
-                        <li><a class="dropdown-item" href="#">Business Development</a></li>
+                        <li><a class="dropdown-item" href="https://scubedimensions.com/cloud-computing/">Cloud Computing</a></li>
+                        <li><a class="dropdown-item" href="https://scubedimensions.com/big-data/">Big Data</a></li>
+                        <li><a class="dropdown-item" href="https://scubedimensions.com/it-consulting/">IT Consulting</a></li>
+                        <li><a class="dropdown-item" href="https://scubedimensions.com/sap-consulting/">SAP Consulting</a></li>
+                        <li><a class="dropdown-item" href="https://scubedimensions.com/digital-marketing/">Digital Marketing</a></li>
+                        <li><a class="dropdown-item" href="https://scubedimensions.com/business-development/">Business Development</a></li>
                     </ul>
                 </li>
 
                 <li class="nav-item px-2">
-                    <a class="nav-link" href="#">RESOURCES</a>
+                    <a class="nav-link" href="https://scubedimensions.com/resources/">RESOURCES</a>
                 </li>
                 <li class="nav-item px-2">
                     <a class="nav-link" href="#">JOBS</a>
                 </li>
                 <li class="nav-item px-2">
-                    <a class="nav-link" href="#">CONTACT US</a>
+                    <a class="nav-link" href="https://scubedimensions.com/contact-us/">CONTACT US</a>
                 </li>
 
                 <!-- Call Button -->
                 <li class="nav-item ms-3">
-                    <a href="tel:+919876543210" class="btn call-btn">
+                    <a href="tel:+442070933776" class="btn call-btn">
                         <i class="bi bi-telephone-fill me-1"></i> CALL US
                     </a>
                 </li>

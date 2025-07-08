@@ -12,7 +12,7 @@ class JobsModel extends CI_Model
     {
         return $this->db
             ->where('status !=', 'Delete')
-            ->where('application_deadline >=', date('Y-m-d')) // today's date
+            // ->where('application_deadline >=', date('Y-m-d')) // today's date
             ->order_by('created_at', 'DESC')
             ->get($this->table)
             ->result();

@@ -14,6 +14,13 @@
   <meta content="" name="author" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <?php include('includes/styles.php'); ?>
+  <style>
+    .bg-danger.text-white {
+      background-color: #f8d7da !important;
+      color: #721c24 !important;
+    }
+  </style>
+
 
 </head>
 
@@ -21,7 +28,7 @@
 
 <body>
   <!-- Top Bar Start -->
-  <?php include('includes/topbar.php'); ?>
+  <?php include('includes/topBar.php'); ?>
 
   <!-- Top Bar End -->
   <!-- leftbar-tab-menu -->
@@ -87,14 +94,17 @@
                         <th>Salary</th>
                         <th>Status</th>
                         <th>Posted Date</th>
+                        <th>Application Deadline</th>
                         <th>Actions</th>
                       </tr>
                     </thead>
                     <tbody>
                       <?php if (!empty($jobs)): ?>
                         <?php $i = 0;
-                        foreach ($jobs as $job): $i++; ?>
-                          <tr>
+                        foreach ($jobs as $job): $i++;
+                          $is_expired = (!empty($job->application_deadline) && strtotime($job->application_deadline) < strtotime(date('Y-m-d')));
+                        ?>
+                          <tr class="<?= $is_expired ? 'bg-danger text-white' : '' ?>">
                             <td><?= $i; ?></td>
                             <td><?= htmlspecialchars($job->job_title); ?></td>
                             <td><?= htmlspecialchars($job->company_name); ?></td>
@@ -102,36 +112,31 @@
                             <td>
                               <?php
                               echo match ($job->job_type) {
-                                'Permanent'  => '<span class="badge bg-primary">Permanent</span>',
+                                'Permanent' => '<span class="badge bg-primary">Permanent</span>',
                                 'Contract'  => '<span class="badge bg-info text-dark">Contract</span>',
-                                'FTC' => '<span class="badge bg-warning text-dark">FTC</span>',
-
-                                default      => '<span class="badge bg-light text-dark">N/A</span>',
+                                'FTC'       => '<span class="badge bg-warning text-dark">FTC</span>',
+                                default     => '<span class="badge bg-light text-dark">N/A</span>',
                               };
                               ?>
                             </td>
-                            <!-- <td><?= htmlspecialchars($job->department); ?></td> -->
                             <td><?= htmlspecialchars($job->experience_required); ?></td>
-                            <td>
-                              <?= $job->salary_min . ' - ' . $job->salary_max; ?>
-                            </td>
+                            <td><?= $job->salary_min . ' - ' . $job->salary_max; ?></td>
                             <td>
                               <?php
                               echo match ($job->status) {
-                                'Active'   => '<span class="badge bg-success">Active</span>',
-                                // 'Closed'   => '<span class="badge bg-danger">Closed</span>',
-                                'Draft'    => '<span class="badge bg-secondary">Draft</span>',
-                                default    => '<span class="badge bg-dark">Unknown</span>',
+                                'Active' => '<span class="badge bg-success">Active</span>',
+                                'Draft'  => '<span class="badge bg-secondary">Draft</span>',
+                                default  => '<span class="badge bg-dark">Unknown</span>',
                               };
                               ?>
                             </td>
                             <td><?= date('Y-m-d', strtotime($job->posted_date)); ?></td>
+                            <td><?= date('Y-m-d', strtotime($job->application_deadline)); ?></td>
                             <td>
                               <a href="<?= base_url('admin/jobs/edit/' . $job->id); ?>" class="btn btn-sm btn-secondary">Edit</a>
-                              <?php $user_type = $this->session->userdata('user_type');
-                              if ($user_type == 1) { ?>
+                              <?php if ($this->session->userdata('user_type') == 1): ?>
                                 <a href="<?= base_url('admin/jobs/delete/' . $job->id); ?>" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this job?')">Delete</a>
-                              <?php } ?>
+                              <?php endif; ?>
                             </td>
                           </tr>
                         <?php endforeach; ?>
@@ -140,6 +145,7 @@
                           <td colspan="11">No jobs found.</td>
                         </tr>
                       <?php endif; ?>
+
                     </tbody>
                   </table>
 

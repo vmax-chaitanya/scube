@@ -85,7 +85,7 @@
 
                   <li>
                     <i class="bi bi-calendar-event job-icon"></i>
-                    <?= date('d M Y', strtotime($job->application_deadline)) ?>
+                    <?= date('d M Y', strtotime($job->application_deadline)) ?> Deadline
                   </li>
                 </ul>
               </div>
@@ -170,16 +170,20 @@
                       <option value="FTC" <?= set_select('job_type', 'FTC') ?>>FTC</option>
                     </select>
                   </div> -->
+                  <?php if ($job->job_type == 'Permanent') { ?>
+                    <div class="col-md-6" id="salary_group">
+                      <label class="form-label">Salary</label>
+                      <input type="number" name="salary" step="0.01" class="form-control" value="<?= set_value('salary') ?>" />
+                    </div>
+                  <?php } else { ?>
 
-                  <div class="col-md-6" id="salary_group">
-                    <label class="form-label">Salary</label>
-                    <input type="number" name="salary" step="0.01" class="form-control" value="<?= set_value('salary') ?>" />
-                  </div>
+                    <div class="col-md-6" id="rate_group">
+                      <label class="form-label">Rate (Day)</label>
+                      <input type="number" name="rate" step="0.01" class="form-control" value="<?= set_value('rate') ?>" />
+                    </div>
 
-                  <div class="col-md-6" id="rate_group">
-                    <label class="form-label">Rate (Day)</label>
-                    <input type="number" name="rate" step="0.01" class="form-control" value="<?= set_value('rate') ?>" />
-                  </div>
+                  <?php } ?>
+
                   <div class="col-md-6">
                     <label class="form-label">Authorized to Work? *</label>
                     <select name="authorized" class="form-select" required>
@@ -270,7 +274,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script>
+  <!-- <script>
     function toggleFields() {
       var jobType = $('#job_type').val();
       if (jobType === 'Contract') {
@@ -289,7 +293,7 @@
         toggleFields(); // Call on change
       });
     });
-  </script>
+  </script> -->
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       const dateInput = document.querySelector('input[name="visa_expiry"]');

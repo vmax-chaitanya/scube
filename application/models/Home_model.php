@@ -14,9 +14,15 @@ class Home_model extends CI_Model
 
     public function get_active_jobs()
     {
-        $this->db->where('status', 'Active');
-        $this->db->order_by('posted_date', 'DESC');
-        return $this->db->get('jobs')->result();
+        // $this->db->where('status', 'Active');
+        // $this->db->order_by('posted_date', 'DESC');
+        // return $this->db->get('jobs')->result();
+        return $this->db
+            ->where('status', 'Active')
+            ->where('application_deadline >=', date('Y-m-d')) // today's date
+            ->order_by('created_at', 'DESC')
+            ->get('jobs')
+            ->result();
     }
     // public function get_job_by_id($id)
     // {
