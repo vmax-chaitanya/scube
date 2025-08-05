@@ -234,8 +234,8 @@ $route['admin/user/store'] = 'Admin/Login/store';
 $route['admin/user/edit/(:num)'] = 'Admin/Login/edit/$1';
 $route['admin/user/update/(:num)'] = 'Admin/Login/update/$1';
 $route['admin/user/delete/(:num)'] = 'Admin/Login/delete/$1';
-$route['admin/user/change_password'] = 'admin/Login/change_password';
-$route['admin/unauth'] = 'admin/Login/unauth';
+$route['admin/user/change_password'] = 'Admin/Login/change_password';
+$route['admin/unauth'] = 'Admin/Login/unauth';
 
 
 $route['admin/jobs'] = 'Admin/JobsController/index';
@@ -245,14 +245,17 @@ $route['admin/jobs/edit/(:num)'] = 'Admin/JobsController/edit/$1';
 $route['admin/jobs/update/(:num)'] = 'Admin/JobsController/update/$1';
 $route['admin/jobs/delete/(:num)'] = 'Admin/JobsController/delete/$1';
 
+$route['admin/jobs/internalJobs'] = 'Admin/JobsController/internalJobs';
+
+
 
 
 // $route['admin/jobapplications/(:num)'] = 'admin/JobApplications/index/$1'; // status-wise listing
-$route['admin/jobapplications/allApplications'] = 'admin/JobApplications/allData';
-$route['admin/jobapplications/(:num)/job/(:num)'] = 'admin/JobApplications/index/$1/$2';
-$route['admin/jobapplications/view/(:num)'] = 'admin/JobApplications/view/$1';
-// $route['admin/jobapplications/update-status/(:num)/(:num)'] = 'admin/JobApplications/update_status/$1/$2';
-$route['admin/jobapplications/update-status/(:num)/(:num)/(:num)'] = 'admin/JobApplications/update_status/$1/$2/$3';
+$route['admin/jobapplications/allApplications'] = 'Admin/JobApplications/allData';
+$route['admin/jobapplications/(:num)/job/(:num)'] = 'Admin/JobApplications/index/$1/$2';
+$route['admin/jobapplications/view/(:num)'] = 'Admin/JobApplications/view/$1';
+// $route['admin/jobapplications/update-status/(:num)/(:num)'] = 'Admin/JobApplications/update_status/$1/$2';
+$route['admin/jobapplications/update-status/(:num)/(:num)/(:num)'] = 'Admin/JobApplications/update_status/$1/$2/$3';
 
 $route['admin/jobapplications/delete/(:num)'] = 'Admin/JobApplications/delete/$1';
 

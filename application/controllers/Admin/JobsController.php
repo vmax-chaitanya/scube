@@ -14,7 +14,7 @@ class JobsController extends CI_Controller
     public function index()
     {
         $data['jobs'] = $this->jobsModel->get_all_jobs();
-        $this->load->view('Admin/jobsListing', $data);
+        $this->load->view('admin/jobsListing', $data);
     }
 
     public function create()
@@ -38,6 +38,7 @@ class JobsController extends CI_Controller
         $this->form_validation->set_rules('job_title', 'Job Title', 'required|max_length[255]');
         $this->form_validation->set_rules('job_type', 'Job Type', 'required');
         $this->form_validation->set_rules('status', 'Status', 'required');
+        $this->form_validation->set_rules('description', 'Description', 'required');
 
         if ($this->form_validation->run() === FALSE) {
             $this->load->view('admin/jobsCreate');
@@ -84,6 +85,8 @@ class JobsController extends CI_Controller
         $this->form_validation->set_rules('job_title', 'Job Title', 'required|max_length[255]');
         $this->form_validation->set_rules('job_type', 'Job Type', 'required');
         $this->form_validation->set_rules('status', 'Status', 'required');
+        $this->form_validation->set_rules('description', 'Description', 'required');
+
 
         $image_name = $this->input->post('old_image'); // Default to old image
 
@@ -158,5 +161,11 @@ class JobsController extends CI_Controller
             'created_at'           => date('Y-m-d H:i:s'),
             'updated_at'           => date('Y-m-d H:i:s')
         ];
+    }
+
+
+    public function internalJobs()
+    {
+        $this->load->view('admin/applyJobsInternally');
     }
 }

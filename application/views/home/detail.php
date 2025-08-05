@@ -74,12 +74,12 @@
               <!-- Right Column -->
               <div class="col-md-6">
                 <ul class="job-meta-list list-unstyled mb-4">
-                  <li><i class="bi bi-hourglass-split job-icon"></i> <?= htmlspecialchars($job->experience_required ?? 'N/A') ?></li>
+                  <li><i class="bi bi-hourglass-split job-icon"></i> <?= htmlspecialchars($job->experience_required . 'Years of Exprience' ?? 'N/A') ?></li>
 
                   <?php if ($job->salary_min || $job->salary_max): ?>
                     <li>
                       <i class="bi bi-currency-rupee job-icon"></i>
-                      ₹<?= number_format($job->salary_min) ?> - ₹<?= number_format($job->salary_max) ?> / Anum
+                      ₹<?= number_format($job->salary_max) ?> / Year
                     </li>
                   <?php endif; ?>
 

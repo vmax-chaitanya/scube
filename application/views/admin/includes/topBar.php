@@ -5,11 +5,11 @@
               id="topbar-custom">
               <ul
                   class="topbar-item list-unstyled d-inline-flex align-items-center mb-0">
-                  <li>
+                  <!-- <li>
                       <button class="nav-link mobile-menu-btn nav-icon" id="togglemenu">
                           <i class="iconoir-menu-scale"></i>
                       </button>
-                  </li>
+                  </li> -->
                   <li class="mx-3 welcome-text">
 
                       <h3 class="mb-0 fw-bold text-truncate">Welcome <?php echo    ucfirst($this->session->userdata('username')) ?>!</h3>

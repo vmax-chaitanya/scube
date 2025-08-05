@@ -16,16 +16,37 @@ body {
 /* Navbar Header */
 .custom-header {
   background-color: #fff;
-  padding: 20px;
+  /* padding: 12px 20px; */
   border-bottom: 1px solid #e5e5e5;
-  margin: 25px 60px;
-  border-radius: 6px;
+  margin: 10px 20px;
+  border-radius: 0;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
   z-index: 1030;
 }
 
-.logo-img {
+/* .custom-header {
+  background-color: #fff;
+  padding: 20px;
+  border-bottom: 1px solid #e5e5e5;
+  margin: 25px 20px;
+  border-radius: 6px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  z-index: 1030;
+} */
+
+/* .logo-img {
   height: 50px;
+  background-color: #fff;
+  padding: 6px;
+  border-radius: 4px;
+  object-fit: contain;
+} */
+
+.logo-img {
+  height: auto;
+  max-height: 50px;
+  width: auto;
+  max-width: 140px;
   background-color: #fff;
   padding: 6px;
   border-radius: 4px;
@@ -87,6 +108,28 @@ body {
 
 .navbar-nav > .nav-item {
   position: relative;
+}
+
+/* Larger logo and more spacing in web view */
+@media (min-width: 992px) {
+  .custom-header {
+    padding: 24px 30px; /* Increase height */
+  }
+
+  .logo-img {
+    max-height: 70px; /* Bigger logo */
+    max-width: 180px;
+  }
+
+  .navbar .nav-link {
+    font-size: 1.05rem;
+    padding: 14px 18px; /* Increase spacing between menu items */
+  }
+
+  .call-btn {
+    font-size: 1rem;
+    padding: 10px 18px;
+  }
 }
 
 /* Section Heading */

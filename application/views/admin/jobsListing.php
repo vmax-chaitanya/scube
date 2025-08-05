@@ -104,7 +104,8 @@
                         foreach ($jobs as $job): $i++;
                           $is_expired = (!empty($job->application_deadline) && strtotime($job->application_deadline) < strtotime(date('Y-m-d')));
                         ?>
-                          <tr class="<?= $is_expired ? 'bg-danger text-white' : '' ?>">
+                          <!-- <tr class="<?= $is_expired ? 'bg-danger text-white' : '' ?>"> -->
+                          <tr class="">
                             <td><?= $i; ?></td>
                             <td><?= htmlspecialchars($job->job_title); ?></td>
                             <td><?= htmlspecialchars($job->company_name); ?></td>
@@ -120,7 +121,7 @@
                               ?>
                             </td>
                             <td><?= htmlspecialchars($job->experience_required); ?></td>
-                            <td><?= $job->salary_min . ' - ' . $job->salary_max; ?></td>
+                            <td><?= $job->salary_max; ?></td>
                             <td>
                               <?php
                               echo match ($job->status) {

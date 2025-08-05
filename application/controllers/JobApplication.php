@@ -14,17 +14,8 @@ class JobApplication extends CI_Controller
     public function apply($slug = null)
     {
 
-        // echo "test";
-        // exit;
-        // $this->load->model('Job_model'); // Replace with your actual model name if different
 
-        // Fetch job details using slug
-        // $job = $this->Job_model->get_job_by_slug($slug);
         $job = $this->Home_model->get_job_by_slug($slug);
-
-        // if (!$job) {
-        //     show_404();
-        // }
 
         // Validation rules
         $this->form_validation->set_rules('first_name', 'First Name', 'required|max_length[100]');
@@ -49,24 +40,27 @@ class JobApplication extends CI_Controller
             // Handle file upload
             $cv_path = '';
             if (!empty($_FILES['resume']['name'])) {
-                $config['upload_path'] = './assets/uploads/cv/';
+
+                if (!is_dir(FCPATH . 'assets/uploads/cv')) {
+                    mkdir(FCPATH . 'assets/uploads/cv', 0755, true);
+                }
+
+                $config['upload_path'] = FCPATH . 'assets/uploads/cv/';
                 $config['allowed_types'] = 'pdf|doc|docx';
-                $config['max_size'] = 2048;
+                $config['max_size'] = 2048; // Size in KB (2 MB)
                 $config['encrypt_name'] = TRUE;
 
                 $this->load->library('upload', $config);
 
                 if (!$this->upload->do_upload('resume')) {
-
-                    echo "hiiii";
-                    exit;
                     $this->session->set_flashdata('error', $this->upload->display_errors());
                     redirect(current_url());
                 } else {
                     $data_upload = $this->upload->data();
-                    $cv_path = '/assets/uploads/cv/' . $data_upload['file_name'];
+                    $cv_path = 'assets/uploads/cv/' . $data_upload['file_name']; // remove leading slash
                 }
             }
+
             if ($this->input->post('authorized') == '0' || $this->input->post('right_to_work') == '0') {
                 $status  = "4";
             } else {

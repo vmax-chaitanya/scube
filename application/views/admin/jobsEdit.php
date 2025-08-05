@@ -68,7 +68,7 @@
                     <div class="col-lg-6">
                       <!-- Job Title -->
                       <div class="mb-3">
-                        <label class="form-label">Job Title <span class="text-danger">*</span></label>
+                        <label class="form-label">Job Title *<span class="text-danger">*</span></label>
                         <input type="text" class="form-control" name="job_title" value="<?= set_value('job_title', $job->job_title); ?>" required>
                         <small class="text-danger"><?= form_error('job_title'); ?></small>
                       </div>
@@ -106,7 +106,7 @@
                     <div class="col-lg-6">
                       <!-- Experience Required -->
                       <div class="mb-3">
-                        <label class="form-label">Job Type <span class="text-danger">*</span></label>
+                        <label class="form-label">Job Type * <span class="text-danger">*</span></label>
                         <select name="job_type" class="form-select" required>
                           <option value="">Select</option>
 
@@ -139,13 +139,13 @@
 
 
                       <div class="mb-3 row">
-                        <div class="col">
+                        <!-- <div class="col">
                           <label for="salary_min" class="form-label">Min Salary</label>
                           <input type="number" class="form-control" name="salary_min" id="salary_min" value="<?= set_value('salary_min', $job->salary_min); ?>">
                           <small class="text-danger"><?= form_error('salary_min'); ?></small>
-                        </div>
+                        </div> -->
                         <div class="col">
-                          <label for="salary_max" class="form-label">Max Salary</label>
+                          <label for="salary_max" class="form-label"> Salary</label>
                           <input type="number" class="form-control" name="salary_max" id="salary_max" value="<?= set_value('salary_max', $job->salary_max); ?>">
                           <small class="text-danger"><?= form_error('salary_max'); ?></small>
                         </div>
@@ -160,7 +160,7 @@
 
                       <!-- Status -->
                       <div class="mb-3">
-                        <label class="form-label">Status <span class="text-danger">*</span></label>
+                        <label class="form-label">Status *<span class="text-danger">*</span></label>
                         <select name="status" class="form-select" required>
                           <option value="">Select</option>
                           <option value="Draft" <?= set_value('status', $job->status) == 'Draft' ? 'selected' : '' ?>>Draft</option>
@@ -188,7 +188,7 @@
                     <!-- Description with CKEditor -->
                     <div class="col-12">
                       <div class="mb-3">
-                        <label class="form-label">Description</label>
+                        <label class="form-label">Description *</label>
                         <textarea class="form-control" id="description" name="description" rows="6"><?= set_value('description', $job->description); ?></textarea>
                         <small class="text-danger"><?= form_error('description'); ?></small>
                       </div>

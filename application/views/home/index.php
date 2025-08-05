@@ -86,8 +86,7 @@
 
                   <?php if ($job->salary_min || $job->salary_max): ?>
                     <p class="card-text">
-                      <i class="bi bi-currency-rupee job-icon"></i>
-                      <?= number_format($job->salary_min) ?> - <?= number_format($job->salary_max) ?>/year
+                      <i class="bi bi-currency-rupee job-icon"></i> <?= number_format($job->salary_max) ?>/year
                     </p>
                   <?php endif; ?>
 

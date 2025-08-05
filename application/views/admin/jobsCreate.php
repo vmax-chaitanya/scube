@@ -69,7 +69,7 @@
                     <div class="col-lg-6">
                       <!-- Job Title -->
                       <div class="mb-3">
-                        <label for="job_title" class="form-label">Job Title</label>
+                        <label for="job_title" class="form-label">Job Title *</label>
                         <input type="text" class="form-control" name="job_title" id="job_title" required>
                       </div>
 
@@ -102,7 +102,7 @@
                     <div class="col-lg-6">
                       <!-- Job Type -->
                       <div class="mb-3">
-                        <label for="job_type" class="form-label">Job Type</label>
+                        <label for="job_type" class="form-label">Job Type *</label>
                         <select class="form-select" name="job_type" id="job_type" required>
                           <option value="">Select</option>
                           <!-- <option value="Full-time">Full-time</option>
@@ -129,12 +129,12 @@
 
                       <!-- Salary Range -->
                       <div class="mb-3 row">
-                        <div class="col">
+                        <!-- <div class="col">
                           <label for="salary_min" class="form-label">Min Salary</label>
                           <input type="number" class="form-control" name="salary_min" id="salary_min">
-                        </div>
+                        </div> -->
                         <div class="col">
-                          <label for="salary_max" class="form-label">Max Salary</label>
+                          <label for="salary_max" class="form-label"> Salary</label>
                           <input type="number" class="form-control" name="salary_max" id="salary_max">
                         </div>
                       </div>
@@ -147,7 +147,7 @@
 
                       <!-- Status -->
                       <div class="mb-3">
-                        <label for="status" class="form-label">Status</label>
+                        <label for="status" class="form-label">Status *</label>
                         <select class="form-select" name="status" id="status">
                           <option value="Draft">Draft</option>
                           <option value="Active">Active</option>
@@ -167,7 +167,7 @@
 
                     <!-- Description -->
                     <div class="col-12 mb-3">
-                      <label for="description" class="form-label">Job Description</label>
+                      <label for="description" class="form-label">Job Description *</label>
                       <textarea class="form-control" id="description" name="description" rows="6"></textarea>
                     </div>
 
